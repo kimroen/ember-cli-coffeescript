@@ -28,14 +28,13 @@ function addRouteToRouter(name, options) {
     return;
   }
 
-  // This regex needs some work. I'd like to not need () around my map-func.
-  var funcRegex  = /(map \(->[\s\S]+)\)/;
+  var funcRegex = /(map\s*->[\s\S]+)(\n^\S+)/m;
 
   switch (type) {
   case 'route':
     newContent = oldContent.replace(
       funcRegex,
-      "$1  @route '" + name + "'\n)"
+      "$1  @route '" + name + "'\n$2"
     );
     break;
   case 'resource':
@@ -44,12 +43,12 @@ function addRouteToRouter(name, options) {
     if (plural === name) {
       newContent = oldContent.replace(
         funcRegex,
-        "$1  @resource '" + name + "'\n)"
+        "$1  @resource '" + name + "'\n$2"
       );
     } else {
       newContent = oldContent.replace(
         funcRegex,
-        "$1  @resource '" + name + "', path: '" + plural + "/:" + name + "_id'\n)"
+        "$1  @resource '" + name + "', path: '" + plural + "/:" + name + "_id'\n$2"
       );
     }
     break;
