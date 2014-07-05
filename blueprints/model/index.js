@@ -1,5 +1,5 @@
 var inflection  = require('inflection');
-var stringUtils = require('ember-cli-coffeescript/lib/utilities/string');
+var stringUtils = require('../../lib/utilities/string');
 
 module.exports = {
   locals: function(options) {
