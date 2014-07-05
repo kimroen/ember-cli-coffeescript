@@ -1,4 +1,5 @@
 'use strict';
+var path = require('path');
 
 function CoffeescriptAddon(project) {
   this._project = project;
@@ -6,8 +7,7 @@ function CoffeescriptAddon(project) {
 }
 
 CoffeescriptAddon.prototype.blueprintsPath = function() {
-  return __dirname + '/blueprints';
+  return path.join(__dirname, 'blueprints');
 };
-
 
 module.exports = CoffeescriptAddon;
