@@ -1,6 +1,6 @@
 'use strict';
 var path = require('path');
-var CoffeePreprocessor = require('./lib/coffee-plugin');
+var CoffeePreprocessor = require('./lib/coffee-preprocessor');
 
 function CoffeescriptAddon(project) {
   this._project = project;
