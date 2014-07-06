@@ -1,5 +1,6 @@
 'use strict';
 var path = require('path');
+var CoffeePreprocessor = require('./lib/coffee-plugin');
 
 function CoffeescriptAddon(project) {
   this._project = project;
@@ -8,6 +9,14 @@ function CoffeescriptAddon(project) {
 
 CoffeescriptAddon.prototype.blueprintsPath = function() {
   return path.join(__dirname, 'blueprints');
+};
+
+CoffeescriptAddon.prototype.included = function(app) {
+  this.app = app;
+
+  var plugin = new CoffeePreprocessor(this.app.options.coffeeOptions);
+
+  this.app.registry.add('js', plugin);
 };
 
 module.exports = CoffeescriptAddon;
