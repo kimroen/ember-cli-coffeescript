@@ -12,4 +12,3 @@ controller pants type:array`
 
 ### Roadmap
 - [ ] Add Coffeescript linting
-- [ ] Add the coffeescript precompiler itself
