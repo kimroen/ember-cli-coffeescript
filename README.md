@@ -1,4 +1,10 @@
-# Blueprints for Coffeescript file generation in Ember CLI projects
+# CoffeeScript support for your ember app
+Adds precompilation of CoffeeScript files and all the basic generation
+types to the `ember generate` command.
+
+### Includes
+- Generating files in CoffeeScript with `ember generate`
+- Preprocessing CoffeeScript-files in your app
 
 ### Install
 ```
