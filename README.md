@@ -20,4 +20,4 @@ Use them by running `ember g <blueprint> <args>`, for instance `ember g
 controller pants type:array`
 
 ### Roadmap
-- [ ] Add Coffeescript linting
+- [ ] Add CoffeeScript linting
