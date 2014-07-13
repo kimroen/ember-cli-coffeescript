@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-coffeescript",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An addon for Ember CLI to include blueprints for file generation",
   "main": "index.js",
   "scripts": {
