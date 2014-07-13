@@ -19,8 +19,7 @@ function addRouteToRouter(name, options) {
   var type       = options.type || 'route';
   var routerPath = path.join(process.cwd(), 'app', 'router.coffee');
   var oldContent = fs.readFileSync(routerPath, 'utf-8');
-  // This probably won't work with coffeescript-files yet. I'll look at it later.
-  var existence  = new RegExp("(route|resource)\\(['\"]" + name + "'");
+  var existence  = new RegExp("(?:route|resource)\\s?\\(?\\s?(['\"])" + name + "\\1");
   var plural;
   var newContent;
 
