@@ -29,6 +29,8 @@ function addRouteToRouter(name, options) {
 
   var funcRegex = /(map\s*->[\s\S]+)(\n^\S+)/m;
 
+  if (name === 'basic') { return; }
+
   switch (type) {
   case 'route':
     newContent = oldContent.replace(
