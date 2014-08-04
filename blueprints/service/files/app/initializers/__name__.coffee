@@ -1,4 +1,4 @@
-<%= classifiedModuleName %>Initializer
+<%= classifiedModuleName %>Initializer =
   name: '<%= dasherizedModuleName %>'
   initialize: (container, app) ->
     app.inject 'route', '<%= camelizedModuleName %>', 'service:<%= camelizedModuleName %>'
