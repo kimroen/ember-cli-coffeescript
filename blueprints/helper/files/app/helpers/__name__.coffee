@@ -1,6 +1,10 @@
 `import Ember from 'ember'`
 
-<%= classifiedModuleName %>Helper = Ember.Handlebars.makeBoundHelper (value) ->
+<%= camelizedModuleName %> = (value) ->
   value
+
+<%= classifiedModuleName %>Helper = Ember.Handlebars.makeBoundHelper <%= camelizedModuleName %>
+
+`export { <%=camelizedModuleName %> }`
 
 `export default <%= classifiedModuleName %>Helper`
