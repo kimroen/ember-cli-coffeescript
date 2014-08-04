@@ -1,4 +1,4 @@
-# CoffeeScript support for your ember app
+# CoffeeScript support for ember-cli
 Adds precompilation of CoffeeScript files and all the basic generation
 types to the `ember generate` command.
 
