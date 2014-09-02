@@ -20,5 +20,7 @@ module.exports = {
                       'Handlebars (< 2.0) slashes within components/helpers are not ' +
                       'allowed.\n');
     }
+
+    return entityName;
   }
 };
