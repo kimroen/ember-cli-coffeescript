@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
 
-<%= classifiedModuleName %>Serializer = DS.ActiveModelSerializer.extend()
+<%= classifiedModuleName %>Serializer = DS.RESTSerializer.extend()
 
 `export default <%= classifiedModuleName %>Serializer`
