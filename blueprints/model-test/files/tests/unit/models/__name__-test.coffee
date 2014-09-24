@@ -8,4 +8,4 @@ moduleForModel '<%= dasherizedModuleName %>', '<%= classifiedModuleName %>', {
 test 'it exists', ->
   model = @subject()
   # store = @store()
-  ok model
+  ok !!model

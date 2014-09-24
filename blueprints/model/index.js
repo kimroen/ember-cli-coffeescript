@@ -2,6 +2,13 @@ var inflection  = require('inflection');
 var stringUtils = require('../../lib/utilities/string');
 
 module.exports = {
+  description: 'Generates an ember-data model.',
+
+  anonymousOptions: [
+    'name',
+    'attr:type'
+  ],
+
   locals: function(options) {
     var attrs = [];
     var needs = [];
