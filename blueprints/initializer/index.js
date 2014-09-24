@@ -1,1 +1,3 @@
-module.exports = {};
+module.exports = {
+  description: 'Generates an initializer.'
+};

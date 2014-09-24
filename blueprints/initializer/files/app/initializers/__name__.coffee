@@ -1,8 +1,10 @@
+# Takes two parameters: container and app
+initialize = () ->
+  # app.register 'route', 'foo', 'service:foo'
+
 <%= classifiedModuleName %>Initializer =
   name: '<%= dasherizedModuleName %>'
+  initialize: initialize
 
-  # container, app is passed to initialize - add if you need them (you probably do)
-  initialize: () ->
-    # app.register 'route', 'foo', 'service:foo'
-
+`export initialize`
 `export default <%= classifiedModuleName %>Initializer`
