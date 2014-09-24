@@ -1,5 +1,6 @@
 var inflection  = require('inflection');
 var stringUtils = require('../../lib/utilities/string');
+var EOL         = require('os').EOL;
 
 module.exports = {
   description: 'Generates an ember-data model.',
@@ -33,7 +34,7 @@ module.exports = {
       }
     }
 
-    attrs = attrs.join('\n  ');
+    attrs = attrs.join('' + EOL + '  ');
     needs = '  needs: [' + needs.join(', ') + ']';
 
     return {
