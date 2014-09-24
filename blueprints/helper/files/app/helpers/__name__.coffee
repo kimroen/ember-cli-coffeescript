@@ -5,6 +5,6 @@
 
 <%= classifiedModuleName %>Helper = Ember.Handlebars.makeBoundHelper <%= camelizedModuleName %>
 
-`export { <%=camelizedModuleName %> }`
+`export { <%= camelizedModuleName %> }`
 
 `export default <%= classifiedModuleName %>Helper`
