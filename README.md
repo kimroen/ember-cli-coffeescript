@@ -11,13 +11,12 @@ types to the `ember generate` command.
 npm install ember-cli-coffeescript --save-dev
 ```
 
-**NB**: Preprocessing works with ember-cli version `0.0.37` and up.
-Generating works with `0.0.39` and up.
+**NB**: This addon requires ember-cli version `0.0.46` and up.
 
 ### How to use
 Run `ember help generate` to get a list of available blueprints.
 Use them by running `ember g <blueprint> <args>`, for instance `ember g
-controller pants type:array`
+controller pants --type=array`
 
 ### Roadmap
 - [ ] Add CoffeeScript linting
