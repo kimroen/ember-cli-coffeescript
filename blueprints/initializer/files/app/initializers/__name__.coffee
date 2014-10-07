@@ -6,5 +6,5 @@ initialize = () ->
   name: '<%= dasherizedModuleName %>'
   initialize: initialize
 
-`export initialize`
+`export {initialize}`
 `export default <%= classifiedModuleName %>Initializer`
