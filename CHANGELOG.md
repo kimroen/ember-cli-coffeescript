@@ -13,7 +13,6 @@
 + Use `EOL` instead of `\n` where applicable
 + Support destroying blueprints
 + Change default generated serializer from `ActiveModelSerializer` to `RESTSerializer`
-+
 + Update readme with new `type`-syntax for generating controllers
 
 ### 0.0.7
