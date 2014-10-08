@@ -11,7 +11,8 @@ types to the `ember generate` command.
 npm install ember-cli-coffeescript --save-dev
 ```
 
-**NB**: This addon requires ember-cli version `0.0.46` and up.
+**NB**: This addon requires ember-cli version `0.1.0` and up. It might work on
+earlier versions, but I wouldn't know.
 
 ### How to use
 Run `ember help generate` to get a list of available blueprints.
