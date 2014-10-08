@@ -1,8 +1,12 @@
-### 0.1.1
+### 0.1.2
 + Fix problem with export in generated initializer [#18](https://github.com/kimroen/ember-cli-coffeescript/pull/18)
 + Make a workaround for error when generating a controller without specifying a type
++ Fix said horrible workaround
 + Update dependencies
 + Create a changelog
+
+### 0.1.1
+Do not use this version.
 
 ## 0.1.0
 + Add descriptions and help to all the blueprints
