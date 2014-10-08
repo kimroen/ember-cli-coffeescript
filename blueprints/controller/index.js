@@ -5,8 +5,13 @@ module.exports = {
     { name: 'type', values: ['basic', 'object', 'array'], default: 'basic' }
   ],
 
+  install: function(options) {
+    return this.lookupBlueprint('controller').install(options);
+  },
+
   beforeInstall: function(options) {
-    this.lookupBlueprint('controller').beforeInstall(options);
+    var controllerBlueprint = this.lookupBlueprint('controller');
+    return controllerBlueprint.beforeInstall(options);
   },
   locals: function(options) {
     return this.lookupBlueprint('controller').locals(options);
