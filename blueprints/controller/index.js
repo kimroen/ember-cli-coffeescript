@@ -6,8 +6,7 @@ module.exports = {
   ],
 
   beforeInstall: function(options) {
-    var controllerBlueprint = this.lookupBlueprint('controller');
-    return controllerBlueprint.beforeInstall(options);
+    return require('ember-cli/blueprints/controller').beforeInstall.call(this, options);
   },
   locals: function(options) {
     return this.lookupBlueprint('controller').locals(options);
