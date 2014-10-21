@@ -10,6 +10,10 @@ module.exports = {
     { name: 'type', values: ['route', 'resource'], default: 'route' }
   ],
 
+  fileMapTokens: function() {
+    return this.lookupBlueprint('route').fileMapTokens();
+  },
+
   beforeInstall: function(options) {
     this.lookupBlueprint('route').beforeInstall(options);
   },
