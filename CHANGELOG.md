@@ -1,3 +1,6 @@
+### 0.2.0
++ Add support for the pod-structure for generated files
+
 ### 0.1.2
 + Fix problem with export in generated initializer [#18](https://github.com/kimroen/ember-cli-coffeescript/pull/18)
 + Make a workaround for error when generating a controller without specifying a type
