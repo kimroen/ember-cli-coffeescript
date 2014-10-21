@@ -10,11 +10,6 @@ module.exports = {
     'attr:type'
   ],
 
-  install: function(options) {
-    console.log("Running model#install");
-    return this.lookupBlueprint('model').install(options);
-  },
-
   locals: function(options) {
     var attrs = [];
     var needs = [];
