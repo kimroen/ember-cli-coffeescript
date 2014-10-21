@@ -9,25 +9,36 @@ module.exports = {
   install: function(options) {
     console.log("Running install");
     return this._process('install', options);
-    return this.lookupBlueprint('resource').install(options);
   },
 
   uninstall: function(options) {
     console.log("Running uninstall");
-    return this.lookupBlueprint('resource').uninstall(options);
+    return this._process('uninstall', options);
   },
 
   _processBlueprint: function(type, name, options) {
     console.log("Running _processBlueprint");
-    var mainBlueprint = require('../' + name);
-    console.log(mainBlueprint);
+    var mainBlueprint = Blueprint.lookup(name, {
+      ui: this.ui,
+      analytics: this.analytics,
+      project: this.project,
+      paths: this.project.blueprintLookupPaths()
+    });
+
+    var thisBlueprint = this;
 
     return Promise.resolve()
       .then(function() {
         return mainBlueprint[type](options);
       })
       .then(function() {
-        var testBlueprint = require('../' + name + '-test');
+        var testBlueprint = Blueprint.lookup(name + '-test', {
+          ui: thisBlueprint.ui,
+          analytics: thisBlueprint.analytics,
+          project: thisBlueprint.project,
+          paths: thisBlueprint.project.blueprintLookupPaths(),
+          ignoreMissing: true
+        });
 
         if (!testBlueprint) { return; }
 
