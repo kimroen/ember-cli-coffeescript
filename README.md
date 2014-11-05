@@ -45,5 +45,15 @@ new EmberApp({
 })
 ```
 
-### Roadmap
-- [ ] Add CoffeeScript linting
+If you want to change the way we format the output you can specify a custom error output and stats output
+
+```javascript
+new EmberApp({
+  "coffeeOptions":{
+    lint:{
+      formatter: function(filePath, lintResults){  }
+      statsFormatter: function(stats){ console.log('Files: ', stats.fileCount, "Errors: ", stats.errorCount) }
+    }
+  }
+})
+```
