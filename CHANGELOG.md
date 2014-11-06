@@ -1,7 +1,10 @@
-### 0.3.0
+### 0.3.1
++ Add missing dependency [#27](https://github.com/kimroen/ember-cli-coffeescript/pull/27)
+
+## 0.3.0
 + Add support for linting CoffeeScript [#25](https://github.com/kimroen/ember-cli-coffeescript/pull/25)
 
-### 0.2.0
+## 0.2.0
 + Add support for the pod-structure for generated files
 
 ### 0.1.2
