@@ -23,5 +23,37 @@ ember-cli-coffeescript comes with pod-support for the same blueprints as ember-c
 does. Check out [the ember-cli docs for pods](http://www.ember-cli.com/#pods)
 for instructions on how to use it.
 
-### Roadmap
-- [ ] Add CoffeeScript linting
+If you have a coffeelint.json file we will automatically pick up on it and start running linting.
+If you do not want linting to run when you have a coffeelint.json file use the following configuration.
+
+```javascript
+new EmberApp({
+  "coffeeOptions": { lint: false }
+})
+```
+
+If you want to specify a different path for your coffeelint.json file you can specify the path
+(relative to the project directory or absolute)
+
+```javascript
+new EmberApp({
+  "coffeeOptions":{
+    lint:{
+      configPath: "configurations/coffeelint.json"
+    }
+  }
+})
+```
+
+If you want to change the way we format the output you can specify a custom error output and stats output
+
+```javascript
+new EmberApp({
+  "coffeeOptions":{
+    lint:{
+      formatter: function(filePath, lintResults){  }
+      statsFormatter: function(stats){ console.log('Files: ', stats.fileCount, "Errors: ", stats.errorCount) }
+    }
+  }
+})
+```
