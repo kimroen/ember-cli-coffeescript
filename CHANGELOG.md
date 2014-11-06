@@ -1,3 +1,6 @@
+### 0.3.0
++ Add support for linting CoffeeScript [#25](https://github.com/kimroen/ember-cli-coffeescript/pull/25)
+
 ### 0.2.0
 + Add support for the pod-structure for generated files
 
