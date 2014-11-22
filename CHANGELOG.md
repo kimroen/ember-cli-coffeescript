@@ -1,3 +1,7 @@
+### 0.3.2
++ Fix some issues with the generated component tests [#29](https://github.com/kimroen/ember-cli-coffeescript/pull/29)
++ Update `broccoli-coffeescript` to `0.3.0`, enabling support for literate CoffeeScript.
+
 ### 0.3.1
 + Add missing dependency [#27](https://github.com/kimroen/ember-cli-coffeescript/pull/27)
 
