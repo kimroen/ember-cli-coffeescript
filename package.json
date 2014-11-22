@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/kimroen/ember-cli-coffeescript",
   "dependencies": {
-    "broccoli-coffee": "~0.1.2",
+    "broccoli-coffee": "~0.3.0",
     "broccoli-filter": "~0.1.10",
     "chalk": "^0.5.1",
     "coffeelint": "^1.6.1",
