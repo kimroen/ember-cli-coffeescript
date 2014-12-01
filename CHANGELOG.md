@@ -1,3 +1,4 @@
+## 0.4.0
 + Support pod-structure for
   + adapters
   + serializers
