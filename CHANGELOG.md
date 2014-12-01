@@ -2,6 +2,14 @@
   + adapters
   + serializers
   + transforms
++ Support pod-structure for tests. Added:
+  + `component-test`
+  + `controller-test`
+  + `model-test`
+  + `route-test`
+  + `serializer-test`
+  + `transform-test`
+  + `view-test`
 + Remove blueprints for controller types. See [original commit in ember-cli](https://github.com/stefanpenner/ember-cli/commit/4070bfa0e524df00fcea6ca7fc7cafb5f3858ac2)
 ### 0.3.2
 + Fix some issues with the generated component tests [#29](https://github.com/kimroen/ember-cli-coffeescript/pull/29)
