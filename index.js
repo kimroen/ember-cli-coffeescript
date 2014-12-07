@@ -16,7 +16,9 @@ module.exports = {
   },
 
   blueprintsPath: function() {
-    return path.join(__dirname, 'blueprints');
+    if (this.getConfig().blueprints) {
+      return path.join(__dirname, 'blueprints');
+    }
   },
 
   included: function(app) {
