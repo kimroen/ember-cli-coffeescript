@@ -7,8 +7,8 @@ application = null
 module '<%= classifiedModuleName %>Initializer',
   setup: ->
     Ember.run ->
-      container = new Ember.Container()
       application = Ember.Application.create()
+      container = application.__container__
       application.deferReadiness()
 
 # Replace this with your real tests.
