@@ -1,6 +1,6 @@
 ## master
 + Update blueprints for ember-cli 0.1.4
-  + Use the Ember.Applications container for initializer tests. [Original commit](https://github.com/stefanpenner/ember-cli/commit/818e62bcfa01fe495582e115586d66ebf25ad4ec)
+  + Use the Ember.Applications container for initializer tests. [ember-cli#2582](https://github.com/stefanpenner/ember-cli/pull/2582)
   + Use project.root instead of process.cwd() in route blueprints. [ember-cli#2604](https://github.com/stefanpenner/ember-cli/pull/2604)
 
 ## 0.4.0
