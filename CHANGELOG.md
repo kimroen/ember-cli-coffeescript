@@ -1,3 +1,6 @@
+## master
++ Make blueprints optional (defaults to include).
+
 ## 0.5.0
 + Update blueprints for ember-cli 0.1.4
   + Use the Ember.Applications container for initializer tests. [ember-cli#2582](https://github.com/stefanpenner/ember-cli/pull/2582)

@@ -1,12 +1,24 @@
 'use strict';
-var path = require('path');
+var path      = require('path');
+var defaults  = require('lodash').defaults;
+
 var CoffeePreprocessor = require('./lib/coffee-preprocessor');
 
 module.exports = {
   name: 'Ember CLI Coffeescript Addon',
 
+  getConfig: function() {
+    var coffeeOptions = defaults(this.project.config('development').coffeeOptions || {}, {
+      blueprints: true
+    });
+
+    return coffeeOptions;
+  },
+
   blueprintsPath: function() {
-    return path.join(__dirname, 'blueprints');
+    if (this.getConfig().blueprints) {
+      return path.join(__dirname, 'blueprints');
+    }
   },
 
   included: function(app) {
