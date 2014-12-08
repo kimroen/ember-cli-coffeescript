@@ -1,5 +1,7 @@
-## master
+## 0.6.0
 + Make blueprints optional (defaults to include).
++ Move `coffeeOptions` from `Brocfile.js` to `config/environment.js`. See `README`
+for more details on how to use.
 
 ## 0.5.0
 + Update blueprints for ember-cli 0.1.4
