@@ -8,9 +8,10 @@ module.exports = {
   name: 'Ember CLI Coffeescript Addon',
 
   getConfig: function() {
-    var coffeeOptions = defaults(this.project.config('development').coffeeOptions || {}, {
-      blueprints: true
-    });
+    var coffeeOptions = defaults(this.project.config('development').coffeeOptions || {},
+      this.app.options.coffeeOptions || {}, {
+        blueprints: true
+      });
 
     return coffeeOptions;
   },
@@ -24,7 +25,7 @@ module.exports = {
   included: function(app) {
     this.app = app;
 
-    var plugin = new CoffeePreprocessor(this.app.options.coffeeOptions);
+    var plugin = new CoffeePreprocessor(this.getConfig());
 
     this.app.registry.add('js', plugin);
   }
