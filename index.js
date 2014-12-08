@@ -8,8 +8,12 @@ module.exports = {
   name: 'Ember CLI Coffeescript Addon',
 
   getConfig: function() {
+    var brocfileConfig = {};
+    if (!!this.app) {
+      brocfileConfig = this.app.options.coffeeOptions || {};
+    }
     var coffeeOptions = defaults(this.project.config('development').coffeeOptions || {},
-      this.app.options.coffeeOptions || {}, {
+      brocfileConfig, {
         blueprints: true
       });
 
