@@ -32,12 +32,12 @@ This will happen automatically - no work necessary.
 #### Linting
 If you have a `coffeelint.json` file we will automatically pick up on it and start running linting.
 If you do not want linting to run when you have a `coffeelint.json` file use the following configuration
-in your `Brocfile.js`.
+in your `config/environment.js`.
 
-```javascript
-new EmberApp({
-  "coffeeOptions": { lint: false }
-})
+```js
+ENV.coffeeOptions = {
+  lint: false
+}
 ```
 
 You can set `lint` to `true` to enable linting with the default configurations, but you will probably
@@ -59,25 +59,21 @@ You can find all the [available options on the website for `coffeelint`](http://
 If you want to specify a different path for your `coffeelint.json` file you can specify the path
 (relative to the project directory or absolute)
 
-```javascript
-new EmberApp({
-  "coffeeOptions":{
-    lint:{
-      configPath: "configurations/coffeelint.json"
-    }
+```js
+ENV.coffeeOptions = {
+  lint: {
+    configPath: "configurations/coffeelint.json"
   }
-})
+}
 ```
 
 If you want to change the way we format the output you can specify a custom error output and stats output
 
-```javascript
-new EmberApp({
-  "coffeeOptions":{
-    lint:{
-      formatter: function(filePath, lintResults){  },
-      statsFormatter: function(stats){ console.log('Files: ', stats.fileCount, "Errors: ", stats.errorCount) }
-    }
+```js
+ENV.coffeeOptions = {
+  lint: {
+    formatter: function(filePath, lintResults) {  },
+    statsFormatter: function(stats) { console.log('Files: ', stats.fileCount, "Errors: ", stats.errorCount) }
   }
-})
+}
 ```
