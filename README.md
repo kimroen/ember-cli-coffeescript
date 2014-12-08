@@ -26,6 +26,18 @@ ember-cli-coffeescript comes with pod-support for the same blueprints as ember-c
 does. Check out [the ember-cli docs for pods](http://www.ember-cli.com/#pods)
 for instructions on how to use it.
 
+If you'd like to use this without the blueprints, you can add the following
+to your `config/environment.js`:
+
+```js
+ENV.coffeeOptions = {
+  blueprints: false
+}
+```
+
+This will make it fall back to the next blueprints in line (probably the ones
+from ember-cli).
+
 #### Precompiling
 This will happen automatically - no work necessary.
 
