@@ -1,3 +1,7 @@
+## master
++ Update blueprints for ember-cli 0.1.5
+  + Check presence of needs in model-test blueprints before emitting [ember-cli#2829](https://github.com/ember-cli/ember-cli/pull/2829)
+
 ## 0.6.0
 + Make blueprints optional (defaults to include).
 + Move `coffeeOptions` from `Brocfile.js` to `config/environment.js`. See `README`
