@@ -1,14 +1,14 @@
 `import Ember from 'ember'`
 `import startApp from '../helpers/start-app'`
 
-App = null
+application = null
 
 module 'Acceptance: <%= classifiedModuleName %>',
   setup: ->
-    App = startApp()
+    application = startApp()
 
   teardown: ->
-    Ember.run App, 'destroy'
+    Ember.run application, 'destroy'
 
 test 'visiting /<%= dasherizedModuleName %>', ->
   visit '/<%= dasherizedModuleName %>'
