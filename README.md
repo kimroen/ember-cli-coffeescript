@@ -17,17 +17,54 @@ earlier versions, but I wouldn't know.
 
 ### How to use
 
+#### CoffeeScript and ember-cli
+There is one thing to note when using CoffeeScript with ember-cli: the syntax for _ES6-modules_.
+In ember-cli-apps written in JavaScript, this is a common pattern:
+
+```js
+// app/components/my-component.js
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+  tagName: 'div'
+});
+```
+
+Writing `import` or `export` in a CoffeeScript-file causes an error, so we'll need
+to escape these lines with backticks so they run as JavaScript.
+
+We also need to store the export in a variable to export at the end, we can't export
+directly as done above. Please note that the name of this variable does not affect
+the name of the component itself - that is based entirely on the file name and placement.
+
+Here's the above file in CoffeeScript:
+
+```coffee
+# app/components/my-component.coffee
+`import Ember from 'ember'`
+
+MyComponent = Ember.Component.extend
+  tagName: 'div'
+
+`export default MyComponent`
+```
+
+Luckily, all the blueprints included with ember-cli does this for you! Which
+reminds me…
+
 #### Blueprints
-Run `ember help generate` to get a list of available blueprints.
-Use them by running `ember g <blueprint> <args>`, for instance `ember g
-controller pants`
+Run `ember help generate` to get a list of available blueprints. Use them by running `ember g <blueprint> <args>`. For instance, to generate the above component:
+
+```
+ember g component my-component`
+```
 
 ember-cli-coffeescript comes with pod-support for the same blueprints as ember-cli
 does. Check out [the ember-cli docs for pods](http://www.ember-cli.com/#pods)
 for instructions on how to use it.
 
-If you'd like to use this without the blueprints, you can add the following
-to your `config/environment.js`:
+If you'd like to use ember-cli-coffeescript without the blueprints, you can add
+the following to your `config/environment.js`:
 
 ```js
 ENV.coffeeOptions = {
