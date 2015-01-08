@@ -42,8 +42,8 @@ from ember-cli).
 This will happen automatically - no work necessary.
 
 #### Linting
-If you have a `coffeelint.json` file we will automatically pick up on it and start running linting.
-If you do not want linting to run when you have a `coffeelint.json` file use the following configuration
+If you have a `coffeelint.json` file in the root of you project we will automatically pick up on it and start running linting on files when using the `ember build` and `ember serve` commands.
+If you do not want linting to run despite having a `coffeelint.json` file, use the following configuration
 in your `config/environment.js`.
 
 ```js
@@ -89,3 +89,8 @@ ENV.coffeeOptions = {
   }
 }
 ```
+
+##### Lintignore
+To avoid linting specific files or folders, you can put a file named `.coffeelintignore`
+in the root of your project containing ignore-rules, one per line. This is just like a
+`.gitignore`-file, and it will follow the same rules.

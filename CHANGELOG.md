@@ -3,6 +3,7 @@
   + Check presence of needs in model-test blueprints before emitting [ember-cli#2829](https://github.com/ember-cli/ember-cli/pull/2829)
   + Reference app instance as application in generated acceptance-tests [ember-cli#2659](https://github.com/ember-cli/ember-cli/pull/2659)
   + Add aliases `-resource` and `-route` to the route blueprint [ember-cli#2565](https://github.com/ember-cli/ember-cli/pull/2565)
++ Add support for `.coffeelintignore`-files [#45](https://github.com/kimroen/ember-cli-coffeescript/pull/45)
 
 ## 0.6.0
 + Make blueprints optional (defaults to include).
