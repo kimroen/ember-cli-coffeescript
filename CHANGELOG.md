@@ -1,4 +1,4 @@
-## master
+## 0.7.0
 + Update blueprints for ember-cli 0.1.5
   + Check presence of needs in model-test blueprints before emitting [ember-cli#2829](https://github.com/ember-cli/ember-cli/pull/2829)
   + Reference app instance as application in generated acceptance-tests [ember-cli#2659](https://github.com/ember-cli/ember-cli/pull/2659)
