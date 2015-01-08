@@ -49,7 +49,7 @@ MyComponent = Ember.Component.extend
 `export default MyComponent`
 ```
 
-Luckily, all the blueprints included with ember-cli does this for you! Which
+Luckily, all the blueprints included with ember-cli-coffeescript does this for you! Which
 reminds me…
 
 #### Blueprints
