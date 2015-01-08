@@ -20,7 +20,7 @@ earlier versions, but I wouldn't know.
 #### Blueprints
 Run `ember help generate` to get a list of available blueprints.
 Use them by running `ember g <blueprint> <args>`, for instance `ember g
-controller pants --type=array`
+controller pants`
 
 ember-cli-coffeescript comes with pod-support for the same blueprints as ember-cli
 does. Check out [the ember-cli docs for pods](http://www.ember-cli.com/#pods)
