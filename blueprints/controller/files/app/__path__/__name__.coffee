@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
 
-<%= classifiedModuleName %>Controller = Ember.<%= baseClass %>.extend()
+<%= classifiedModuleName %>Controller = Ember.Controller.extend()
 
 `export default <%= classifiedModuleName %>Controller`

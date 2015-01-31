@@ -1,26 +1,42 @@
 'use strict';
-var path = require('path');
+var path      = require('path');
+var chalk     = require('chalk');
+var defaults  = require('lodash').defaults;
+
 var CoffeePreprocessor = require('./lib/coffee-preprocessor');
 
-function CoffeescriptAddon(project) {
-  this._project = project;
-  this.name     = 'Ember CLI Coffeescript Addon';
-}
+module.exports = {
+  name: 'Ember CLI Coffeescript Addon',
 
-CoffeescriptAddon.prototype.blueprintsPath = function() {
-  return path.join(__dirname, 'blueprints');
+  getConfig: function() {
+    var brocfileConfig = {};
+    if (!!this.app) {
+      if (!!this.app.options.coffeeOptions) {
+        console.log(chalk.yellow("Passing in coffeeOptions from Brocfile.js is \n" +
+        "deprecated and support will be removed in the next minor release. \n" +
+        "Please use config/environment.js instead. See README on GitHub for more details."));
+      }
+      brocfileConfig = this.app.options.coffeeOptions || {};
+    }
+    var coffeeOptions = defaults(this.project.config('development').coffeeOptions || {},
+      brocfileConfig, {
+        blueprints: true
+      });
+
+    return coffeeOptions;
+  },
+
+  blueprintsPath: function() {
+    if (this.getConfig().blueprints) {
+      return path.join(__dirname, 'blueprints');
+    }
+  },
+
+  included: function(app) {
+    this.app = app;
+
+    var plugin = new CoffeePreprocessor(this.getConfig());
+
+    this.app.registry.add('js', plugin);
+  }
 };
-
-CoffeescriptAddon.prototype.included = function(app) {
-  this.app = app;
-
-  var plugin = new CoffeePreprocessor(this.app.options.coffeeOptions);
-
-  this.app.registry.add('js', plugin);
-};
-
-// This is just here because it was required in ember-cli v0.0.37.
-// To be removed when compatibility breaks.
-CoffeescriptAddon.prototype.treeFor = function() {};
-
-module.exports = CoffeescriptAddon;

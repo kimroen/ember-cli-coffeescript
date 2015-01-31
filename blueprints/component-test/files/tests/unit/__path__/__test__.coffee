@@ -10,8 +10,8 @@ test 'it renders', ->
 
   # creates the component instance
   component = @subject()
-  equal component.state, 'preRender'
+  equal component._state, 'preRender'
 
   # appends the component to the page
   @append()
-  equal component.state, 'inDOM'
+  equal component._state, 'inDOM'

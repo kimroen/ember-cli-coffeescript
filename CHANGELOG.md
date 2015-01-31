@@ -1,4 +1,52 @@
-### 0.2.0
+## master
++ Update blueprints for ember-cli 0.1.12
+  + Add test helper blueprint [ember-cli#3049](https://github.com/ember-cli/ember-cli/pull/3049)
+  + Use relative paths in test blueprints [ember-cli#3154](https://github.com/ember-cli/ember-cli/pull/3154)
+
+## 0.7.0
++ Update blueprints for ember-cli 0.1.5
+  + Check presence of needs in model-test blueprints before emitting [ember-cli#2829](https://github.com/ember-cli/ember-cli/pull/2829)
+  + Reference app instance as application in generated acceptance-tests [ember-cli#2659](https://github.com/ember-cli/ember-cli/pull/2659)
+  + Add aliases `-resource` and `-route` to the route blueprint [ember-cli#2565](https://github.com/ember-cli/ember-cli/pull/2565)
++ Add support for `.coffeelintignore`-files [#45](https://github.com/kimroen/ember-cli-coffeescript/pull/45)
+
+## 0.6.0
++ Make blueprints optional (defaults to include).
++ Move `coffeeOptions` from `Brocfile.js` to `config/environment.js`. See `README`
+for more details on how to use.
+
+## 0.5.0
++ Update blueprints for ember-cli 0.1.4
+  + Use the Ember.Applications container for initializer tests. [ember-cli#2582](https://github.com/stefanpenner/ember-cli/pull/2582)
+  + Use project.root instead of process.cwd() in route blueprints. [ember-cli#2604](https://github.com/stefanpenner/ember-cli/pull/2604)
+
+## 0.4.0
++ Support pod-structure for
+  + adapters
+  + serializers
+  + transforms
++ Support pod-structure for tests. Added:
+  + `component-test`
+  + `controller-test`
+  + `model-test`
+  + `route-test`
+  + `serializer-test`
+  + `transform-test`
+  + `view-test`
++ Remove blueprints for controller types. See [original commit in ember-cli](https://github.com/stefanpenner/ember-cli/commit/4070bfa0e524df00fcea6ca7fc7cafb5f3858ac2)
++ Make generated relationships in models use dasherized names. [Ref issue ember-cli](https://github.com/stefanpenner/ember-cli/issues/2350)
+
+### 0.3.2
++ Fix some issues with the generated component tests [#29](https://github.com/kimroen/ember-cli-coffeescript/pull/29)
++ Update `broccoli-coffeescript` to `0.3.0`, enabling support for literate CoffeeScript.
+
+### 0.3.1
++ Add missing dependency [#27](https://github.com/kimroen/ember-cli-coffeescript/pull/27)
+
+## 0.3.0
++ Add support for linting CoffeeScript [#25](https://github.com/kimroen/ember-cli-coffeescript/pull/25)
+
+## 0.2.0
 + Add support for the pod-structure for generated files
 
 ### 0.1.2

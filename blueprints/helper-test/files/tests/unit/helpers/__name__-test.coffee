@@ -1,4 +1,4 @@
-`import { <%= camelizedModuleName %> } from '<%= dasherizedPackageName %>/helpers/<%= dasherizedModuleName %>'`
+`import { <%= camelizedModuleName %> } from '../../../helpers/<%= dasherizedModuleName %>'`
 
 module '<%= classifiedModuleName %>Helper'
 

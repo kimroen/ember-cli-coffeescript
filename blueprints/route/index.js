@@ -7,7 +7,16 @@ module.exports = {
   description: 'Generates a route and registers it with the router.',
 
   availableOptions: [
-    { name: 'type', values: ['route', 'resource'], default: 'route' }
+    {
+      name: 'type',
+      type: String,
+      values: ['route', 'resource'],
+      default: 'route',
+      aliases: [
+        {'route': 'route'},
+        {'resource': 'resource'}
+      ]
+    }
   ],
 
   fileMapTokens: function() {
@@ -27,7 +36,8 @@ module.exports = {
 
     if (this.shouldTouchRouter(entity.name) && !options.dryRun) {
       addRouteToRouter(entity.name, {
-        type: options.type
+        type: options.type,
+        root: options.project.root
       });
     }
   },
@@ -41,7 +51,8 @@ module.exports = {
 
     if (this.shouldTouchRouter(entity.name) && !options.dryRun) {
       removeRouteFromRouter(entity.name, {
-        type: options.type
+        type: options.type,
+        root: options.project.root
       });
     }
   }
@@ -49,7 +60,7 @@ module.exports = {
 
 function removeRouteFromRouter(name, options) {
   var type       = options.type || 'route';
-  var routerPath = path.join(process.cwd(), 'app', 'router.coffee');
+  var routerPath = path.join(options.root, 'app', 'router.coffee');
   var oldContent = fs.readFileSync(routerPath, 'utf-8');
   var existence  = new RegExp("(?:route|resource)\\s?\\(?\\s?(['\"])" + name + "\\1");
   var newContent;
@@ -82,7 +93,7 @@ function removeRouteFromRouter(name, options) {
 
 function addRouteToRouter(name, options) {
   var type       = options.type || 'route';
-  var routerPath = path.join(process.cwd(), 'app', 'router.coffee');
+  var routerPath = path.join(options.root, 'app', 'router.coffee');
   var oldContent = fs.readFileSync(routerPath, 'utf-8');
   var existence  = new RegExp("(?:route|resource)\\s?\\(?\\s?(['\"])" + name + "\\1");
   var plural;
