@@ -1,3 +1,8 @@
+## master
++ Update blueprints for ember-cli 0.1.12
+  + Add test helper blueprint [ember-cli#3049](https://github.com/ember-cli/ember-cli/pull/3049)
+  + Use relative paths in test blueprints [ember-cli#3154](https://github.com/ember-cli/ember-cli/pull/3154)
+
 ## 0.7.0
 + Update blueprints for ember-cli 0.1.5
   + Check presence of needs in model-test blueprints before emitting [ember-cli#2829](https://github.com/ember-cli/ember-cli/pull/2829)
