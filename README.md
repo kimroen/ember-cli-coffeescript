@@ -49,8 +49,8 @@ MyComponent = Ember.Component.extend
 `export default MyComponent`
 ```
 
-Luckily, all the blueprints included with ember-cli-coffeescript does this for you! Which
-reminds me…
+Luckily, all the blueprints included with ember-cli-coffeescript do this for you! Which
+leads to…
 
 #### Blueprints
 Run `ember help generate` to get a list of available blueprints. Use them by running `ember g <blueprint> <args>`. For instance, to generate the above component:
@@ -126,6 +126,10 @@ ENV.coffeeOptions = {
   }
 }
 ```
+
+**NOTE:** The lint results will show up twice when you build and run your app; once
+for the app files, and then once for the test files. On rebuild, only the changed
+files are linted.
 
 ##### Lintignore
 To avoid linting specific files or folders, you can put a file named `.coffeelintignore`
