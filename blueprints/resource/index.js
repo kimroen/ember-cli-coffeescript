@@ -1,23 +1,22 @@
 var inflection = require('inflection');
 var Promise    = require('ember-cli/lib/ext/promise');
-var merge      = require('lodash-node/compat/objects/merge');
+var merge      = require('lodash').merge;
 var Blueprint  = require('ember-cli/lib/models/blueprint');
 
 module.exports = {
   description: 'Generates a model and route.',
 
   install: function(options) {
-    console.log("Running install");
+    this.project = options.project;
     return this._process('install', options);
   },
 
   uninstall: function(options) {
-    console.log("Running uninstall");
+    this.project = options.project;
     return this._process('uninstall', options);
   },
 
   _processBlueprint: function(type, name, options) {
-    console.log("Running _processBlueprint");
     var mainBlueprint = Blueprint.lookup(name, {
       ui: this.ui,
       analytics: this.analytics,
@@ -53,7 +52,6 @@ module.exports = {
   },
 
   _process: function(type, options) {
-    console.log("Running _process");
     var modelOptions = merge({}, options, {
       entity: {
         name: inflection.singularize(options.entity.name)
