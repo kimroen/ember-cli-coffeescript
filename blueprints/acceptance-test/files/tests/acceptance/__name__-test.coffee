@@ -7,11 +7,11 @@ module 'Acceptance: <%= classifiedModuleName %>',
   setup: ->
     application = startApp()
     ###
-    return null as Ember.Application.then is deprecated.
+    don't return as Ember.Application.then is deprecated.
     Newer version of QUnit uses the return value's .then
     function to wait for promises if it exists.
     ###
-    null
+    return
 
   teardown: ->
     Ember.run application, 'destroy'
