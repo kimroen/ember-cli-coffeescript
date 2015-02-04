@@ -18,7 +18,7 @@ module.exports = {
       }
       brocfileConfig = this.app.options.coffeeOptions || {};
     }
-    var coffeeOptions = defaults(this.project.config('development').coffeeOptions || {},
+    var coffeeOptions = defaults(this.project.config(process.env.EMBER_ENV).coffeeOptions || {},
       brocfileConfig, {
         blueprints: true
       });
