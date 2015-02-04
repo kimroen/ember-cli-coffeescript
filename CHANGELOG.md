@@ -1,4 +1,4 @@
-## master
+## 0.8.1
 + Fix a problem in the acceptance-test blueprint to not hang by default [#51](https://github.com/kimroen/ember-cli-coffeescript/pull/51)
 + Fix a problem with config not being respected in test [#55](https://github.com/kimroen/ember-cli-coffeescript/pull/55)
 
