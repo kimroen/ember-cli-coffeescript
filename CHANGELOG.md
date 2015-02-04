@@ -1,5 +1,7 @@
 ## master
 + Fix a problem in the acceptance-test blueprint to not hang by default [#51](https://github.com/kimroen/ember-cli-coffeescript/pull/51)
++ Fix a problem with config not being respected in test [#55](https://github.com/kimroen/ember-cli-coffeescript/pull/55)
+
 ## 0.8.0
 + Update blueprints for ember-cli 0.1.12
   + Add test helper blueprint [ember-cli#3049](https://github.com/ember-cli/ember-cli/pull/3049)
