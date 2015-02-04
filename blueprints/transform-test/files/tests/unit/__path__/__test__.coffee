@@ -6,6 +6,6 @@ moduleFor 'transform:<%= dasherizedModuleName %>', '<%= classifiedModuleName %>T
 }
 
 # Replace this with your real tests.
-test 'it exists', ->
+test 'it exists', (assert) ->
   transform = @subject()
-  ok transform
+  assert.ok transform

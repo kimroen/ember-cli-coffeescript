@@ -3,8 +3,8 @@
 
 application = null
 
-module 'Acceptance: <%= classifiedModuleName %>',
-  setup: ->
+QUnit.module 'Acceptance: <%= classifiedModuleName %>',
+  beforeEach: ->
     application = startApp()
     ###
     Don't return as Ember.Application.then is deprecated.
@@ -13,11 +13,11 @@ module 'Acceptance: <%= classifiedModuleName %>',
     ###
     return
 
-  teardown: ->
+  afterEach: ->
     Ember.run application, 'destroy'
 
-test 'visiting /<%= dasherizedModuleName %>', ->
+QUnit.test 'visiting /<%= dasherizedModuleName %>', (assert) ->
   visit '/<%= dasherizedModuleName %>'
 
   andThen ->
-    equal currentPath(), '<%= dasherizedModuleName %>'
+    assert.equal currentPath(), '<%= dasherizedModuleName %>'

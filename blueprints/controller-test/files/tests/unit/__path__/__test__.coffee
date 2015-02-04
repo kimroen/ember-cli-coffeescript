@@ -6,7 +6,7 @@ moduleFor 'controller:<%= dasherizedModuleName %>', '<%= classifiedModuleName %>
 }
 
 # Replace this with your real tests.
-test 'it exists', ->
+test 'it exists', (assert) ->
   controller = @subject()
-  ok controller
+  assert.ok controller
 

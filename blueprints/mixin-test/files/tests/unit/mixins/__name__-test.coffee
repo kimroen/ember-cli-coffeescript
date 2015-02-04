@@ -1,10 +1,10 @@
 `import Ember from 'ember'`
 `import <%= classifiedModuleName %>Mixin from '../../../mixins/<%= dasherizedModuleName %>'`
 
-module '<%= classifiedModuleName %>Mixin'
+QUnit.module '<%= classifiedModuleName %>Mixin'
 
 # Replace this with your real tests.
-test 'it works', ->
+QUnit.test 'it works', (assert) ->
   <%= classifiedModuleName %>Object = Ember.Object.extend <%= classifiedModuleName %>Mixin
   subject = <%= classifiedModuleName %>Object.create()
-  ok subject
+  assert.ok subject

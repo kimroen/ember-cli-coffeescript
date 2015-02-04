@@ -5,7 +5,7 @@ moduleForModel '<%= dasherizedModuleName %>', '<%= classifiedModuleName %>', {
 <%= typeof needs !== 'undefined' ? needs : '' %>
 }
 
-test 'it exists', ->
+test 'it exists', (assert) ->
   model = @subject()
   # store = @store()
-  ok !!model
+  assert.ok !!model
