@@ -1,6 +1,6 @@
 `import { test, moduleFor } from 'ember-qunit'`
 
-moduleFor 'view:<%= dasherizedModuleName %>', '<%= classifiedModuleName %>View'
+moduleFor 'view:<%= dasherizedModuleName %>'
 
 # Replace this with your real tests.
 test 'it exists', ->
