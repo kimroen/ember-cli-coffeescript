@@ -1,8 +1,9 @@
 `import { <%= camelizedModuleName %> } from '../../../helpers/<%= dasherizedModuleName %>'`
+`import { module, test } from 'qunit'`
 
-QUnit.module '<%= classifiedModuleName %>Helper'
+module '<%= classifiedModuleName %>Helper'
 
 # Replace this with your real tests.
-QUnit.test 'it works', (assert) ->
+test 'it works', (assert) ->
   result = <%= camelizedModuleName %> 42
   assert.ok result

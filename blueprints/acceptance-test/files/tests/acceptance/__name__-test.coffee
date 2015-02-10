@@ -1,9 +1,10 @@
 `import Ember from 'ember'`
+`import { module, test } from 'qunit'`
 `import startApp from '../helpers/start-app'`
 
 application = null
 
-QUnit.module 'Acceptance: <%= classifiedModuleName %>',
+module 'Acceptance: <%= classifiedModuleName %>',
   beforeEach: ->
     application = startApp()
     ###
@@ -16,7 +17,7 @@ QUnit.module 'Acceptance: <%= classifiedModuleName %>',
   afterEach: ->
     Ember.run application, 'destroy'
 
-QUnit.test 'visiting /<%= dasherizedModuleName %>', (assert) ->
+test 'visiting /<%= dasherizedModuleName %>', (assert) ->
   visit '/<%= dasherizedModuleName %>'
 
   andThen ->
