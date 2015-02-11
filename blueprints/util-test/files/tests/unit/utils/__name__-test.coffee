@@ -1,8 +1,9 @@
 `import <%= camelizedModuleName %> from '../../../utils/<%= dasherizedModuleName %>'`
+`import { module, test } from 'qunit'`
 
 module '<%= camelizedModuleName %>'
 
 # Replace this with your real tests.
-test 'it works', ->
+test 'it works', (assert) ->
   result = <%= camelizedModuleName %>()
-  ok result
+  assert.ok result

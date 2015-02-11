@@ -6,6 +6,6 @@ moduleFor 'serializer:<%= dasherizedModuleName %>', '<%= classifiedModuleName %>
 }
 
 # Replace this with your real tests.
-test 'it exists', ->
+test 'it exists', (assert) ->
   serializer = @subject()
-  ok serializer
+  assert.ok serializer

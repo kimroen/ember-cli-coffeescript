@@ -5,6 +5,6 @@ moduleFor 'route:<%= dasherizedModuleName %>', '<%= classifiedModuleName %>Route
   # needs: ['controller:foo']
 }
 
-test 'it exists', ->
+test 'it exists', (assert) ->
   route = @subject()
-  ok route
+  assert.ok route

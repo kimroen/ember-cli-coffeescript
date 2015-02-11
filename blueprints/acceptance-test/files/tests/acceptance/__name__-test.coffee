@@ -1,10 +1,11 @@
 `import Ember from 'ember'`
+`import { module, test } from 'qunit'`
 `import startApp from '../helpers/start-app'`
 
 application = null
 
 module 'Acceptance: <%= classifiedModuleName %>',
-  setup: ->
+  beforeEach: ->
     application = startApp()
     ###
     Don't return as Ember.Application.then is deprecated.
@@ -13,11 +14,11 @@ module 'Acceptance: <%= classifiedModuleName %>',
     ###
     return
 
-  teardown: ->
+  afterEach: ->
     Ember.run application, 'destroy'
 
-test 'visiting /<%= dasherizedModuleName %>', ->
+test 'visiting /<%= dasherizedModuleName %>', (assert) ->
   visit '/<%= dasherizedModuleName %>'
 
   andThen ->
-    equal currentPath(), '<%= dasherizedModuleName %>'
+    assert.equal currentPath(), '<%= dasherizedModuleName %>'

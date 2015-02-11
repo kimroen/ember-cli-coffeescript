@@ -3,6 +3,6 @@
 moduleFor 'view:<%= dasherizedModuleName %>', '<%= classifiedModuleName %>View'
 
 # Replace this with your real tests.
-test 'it exists', ->
+test 'it exists', (assert) ->
   view = @subject()
-  ok view
+  assert.ok view

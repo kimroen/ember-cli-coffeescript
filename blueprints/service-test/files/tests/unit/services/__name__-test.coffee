@@ -6,6 +6,6 @@ moduleFor 'service:<%= dasherizedModuleName %>', '<%= classifiedModuleName %>Ser
 }
 
 # Replace this with your real tests.
-test 'it exists', ->
+test 'it exists', (assert) ->
   service = @subject()
-  ok service
+  assert.ok service

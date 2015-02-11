@@ -6,6 +6,6 @@ moduleFor 'adapter:<%= dasherizedModuleName %>', '<%= classifiedModuleName %>Ada
 }
 
 # Replace this with your real tests.
-test 'it exists', ->
+test 'it exists', (assert) ->
   adapter = @subject()
-  ok adapter
+  assert.ok adapter
