@@ -1,3 +1,4 @@
+/* jshint node: true */
 'use strict';
 var path      = require('path');
 var chalk     = require('chalk');
@@ -6,7 +7,7 @@ var defaults  = require('lodash').defaults;
 var CoffeePreprocessor = require('./lib/coffee-preprocessor');
 
 module.exports = {
-  name: 'Ember CLI Coffeescript Addon',
+  name: 'ember-cli-coffeescript',
 
   getConfig: function() {
     var brocfileConfig = {};
