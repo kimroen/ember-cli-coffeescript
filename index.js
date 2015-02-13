@@ -15,14 +15,6 @@ module.exports = {
 
   getConfig: function() {
     var brocfileConfig = {};
-    if (!!this.app) {
-      if (!!this.app.options.coffeeOptions) {
-        console.log(chalk.yellow("Passing in coffeeOptions from Brocfile.js is \n" +
-        "deprecated and support will be removed in the next minor release. \n" +
-        "Please use config/environment.js instead. See README on GitHub for more details."));
-      }
-      brocfileConfig = this.app.options.coffeeOptions || {};
-    }
     var coffeeOptions = defaults(this.project.config(process.env.EMBER_ENV).coffeeOptions || {},
       brocfileConfig, {
         blueprints: true
