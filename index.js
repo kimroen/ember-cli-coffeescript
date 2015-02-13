@@ -1,12 +1,17 @@
 'use strict';
 var path      = require('path');
 var chalk     = require('chalk');
+var checker   = require('ember-cli-version-checker');
 var defaults  = require('lodash').defaults;
 
 var CoffeePreprocessor = require('./lib/coffee-preprocessor');
 
 module.exports = {
   name: 'Ember CLI Coffeescript Addon',
+
+  shouldSetupRegistryInIncluded: function() {
+    return !checker.isAbove(this, '0.2.0');
+  },
 
   getConfig: function() {
     var brocfileConfig = {};
@@ -32,11 +37,17 @@ module.exports = {
     }
   },
 
+  setupPreprocessorRegistry: function(type, registry) {
+    var plugin = new CoffeePreprocessor(this.getConfig());
+
+    registry.add('js', plugin);
+  },
+
   included: function(app) {
     this.app = app;
 
-    var plugin = new CoffeePreprocessor(this.getConfig());
-
-    this.app.registry.add('js', plugin);
+    if (this.shouldSetupRegistryInIncluded()) {
+      this.setupPreprocessorRegistry('parent', app.registry);
+    }
   }
 };
