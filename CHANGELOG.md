@@ -1,3 +1,6 @@
+## master
++ Add compatibility with upcoming changes in ember-cli 0.2.0 [#60](https://github.com/kimroen/ember-cli-coffeescript/pull/60)
+
 ## 0.9.0
 + Update blueprints for ember-cli 0.1.13
   + Removed classifiedModuleName from moduleFor. They are optional now. [#57](https://github.com/kimroen/ember-cli-coffeescript/pull/57)
