@@ -1,4 +1,4 @@
-## master
+## 0.9.1
 + Add compatibility with upcoming changes in ember-cli 0.2.0 [#60](https://github.com/kimroen/ember-cli-coffeescript/pull/60)
 
 ## 0.9.0
