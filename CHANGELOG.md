@@ -1,3 +1,6 @@
+## master
++ Extend from Ember.Service in service blueprint [#58](https://github.com/kimroen/ember-cli-coffeescript/pull/58)
+
 ## 0.9.1
 + Add compatibility with upcoming changes in ember-cli 0.2.0 [#60](https://github.com/kimroen/ember-cli-coffeescript/pull/60)
 
