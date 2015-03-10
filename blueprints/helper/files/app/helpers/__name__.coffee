@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
-<%= camelizedModuleName %> = (value) ->
-  value
+# This function receives the params `params, hash`
+<%= camelizedModuleName %> = () ->
 
 <%= classifiedModuleName %>Helper = Ember.HTMLBars.makeBoundHelper <%= camelizedModuleName %>
 

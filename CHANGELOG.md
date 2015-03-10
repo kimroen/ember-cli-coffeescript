@@ -1,7 +1,7 @@
 ## master
 + Blueprint improvements for ember-cli 0.2.0
   + Extend from Ember.Service in service blueprint [#58](https://github.com/kimroen/ember-cli-coffeescript/pull/58)
-  + Use Ember.HTMLBars by default in helpers [ember-cli#3383](https://github.com/ember-cli/ember-cli/pull/3383)
+  + Use Ember.HTMLBars by default in helpers [ember-cli#3383](https://github.com/ember-cli/ember-cli/pull/3383) [ember-cli#3410](https://github.com/ember-cli/ember-cli/pull/3410)
 + Update broccoli-coffee to ~0.4.0
 
 ## 0.9.1
