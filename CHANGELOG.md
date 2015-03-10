@@ -4,6 +4,7 @@
   + Use Ember.HTMLBars by default in helpers [ember-cli#3383](https://github.com/ember-cli/ember-cli/pull/3383) [ember-cli#3410](https://github.com/ember-cli/ember-cli/pull/3410)
 + Update broccoli-coffee to ~0.4.0
 + Fix filtering to use CoffeeScript extensions [#64](https://github.com/kimroen/ember-cli-coffeescript/pull/64)
++ Update chalk to ^1.0.0 [#63](https://github.com/kimroen/ember-cli-coffeescript/pull/63)
 
 ## 0.9.1
 + Add compatibility with upcoming changes in ember-cli 0.2.0 [#60](https://github.com/kimroen/ember-cli-coffeescript/pull/60)
