@@ -12,7 +12,7 @@ types to the `ember generate` command, as well as linting.
 ember install:addon ember-cli-coffeescript
 ```
 
-**NB**: This addon requires ember-cli version `0.1.13` and up. It might work on
+**NB**: This addon requires ember-cli version `0.2.0` and up. It might work on
 earlier versions, but I wouldn't know.
 
 ### How to use
