@@ -4,7 +4,7 @@ types to the `ember generate` command, as well as linting.
 
 ### Includes
 - Generating files in CoffeeScript with `ember generate`
-- Preprocessing CoffeeScript-files in your app
+- Preprocessing CoffeeScript-files in your app, including tests
 - Linting your CoffeeScript-files.
 
 ### Install
