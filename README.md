@@ -9,7 +9,7 @@ types to the `ember generate` command, as well as linting.
 
 ### Install
 ```
-ember install:addon ember-cli-coffeescript
+ember install ember-cli-coffeescript
 ```
 
 **NB**: This addon requires ember-cli version `0.2.0` and up. It might work on
