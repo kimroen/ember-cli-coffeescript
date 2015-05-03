@@ -32,5 +32,10 @@
     "ignore": "^2.2.15",
     "inflection": "^1.4.0",
     "lodash": "^2.4.1"
+  },
+  "ember-addon": {
+    "before": [
+      "ember-cli-babel"
+    ]
   }
 }
