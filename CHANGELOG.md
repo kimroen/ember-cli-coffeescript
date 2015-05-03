@@ -1,4 +1,4 @@
-## master
+## 0.11.0
 + Generating components in addons now works [#67](https://github.com/kimroen/ember-cli-coffeescript/pull/67)
 + If both coffeescript and babel is used, now coffee runs first [#74](https://github.com/kimroen/ember-cli-coffeescript/pull/74)
 + Blueprint-tweaks:
