@@ -21,4 +21,4 @@ test 'visiting /<%= dasherizedModuleName %>', (assert) ->
   visit '/<%= dasherizedModuleName %>'
 
   andThen ->
-    assert.equal currentPath(), '<%= dasherizedModuleName %>'
+    assert.equal currentURL(), '/<%= dasherizedModuleName %>'
