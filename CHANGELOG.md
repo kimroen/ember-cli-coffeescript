@@ -1,3 +1,7 @@
+## master
++ Generating components in addons now works [#67](https://github.com/kimroen/ember-cli-coffeescript/pull/67)
++ If both coffeescript and babel is used, now coffee runs first [#74](https://github.com/kimroen/ember-cli-coffeescript/pull/74)
+
 ## 0.10.0
 + Blueprint improvements for ember-cli 0.2.0
   + Extend from Ember.Service in service blueprint [#58](https://github.com/kimroen/ember-cli-coffeescript/pull/58)
