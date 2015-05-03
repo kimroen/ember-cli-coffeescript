@@ -1,6 +1,8 @@
 ## master
 + Generating components in addons now works [#67](https://github.com/kimroen/ember-cli-coffeescript/pull/67)
 + If both coffeescript and babel is used, now coffee runs first [#74](https://github.com/kimroen/ember-cli-coffeescript/pull/74)
++ Blueprint-tweaks:
+  + Use `currentURL` instead of `currentPath` in acceptance-test [ember-cli#3755](https://github.com/ember-cli/ember-cli/pull/3755)
 
 ## 0.10.0
 + Blueprint improvements for ember-cli 0.2.0
