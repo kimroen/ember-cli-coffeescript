@@ -56,7 +56,7 @@ leads to…
 Run `ember help generate` to get a list of available blueprints. Use them by running `ember g <blueprint> <args>`. For instance, to generate the above component:
 
 ```
-ember g component my-component`
+ember g component my-component
 ```
 
 ember-cli-coffeescript comes with pod-support for the same blueprints as ember-cli
