@@ -27,14 +27,14 @@ module.exports = {
     this.lookupBlueprint('route').beforeInstall(options);
   },
 
-  shouldTouchRouter: function(name) {
-    return this.lookupBlueprint('route').shouldTouchRouter(name);
+  shouldTouchRouter: function(name, options) {
+    return this.lookupBlueprint('route').shouldTouchRouter(name, options);
   },
 
   afterInstall: function(options) {
     var entity = options.entity;
 
-    if (this.shouldTouchRouter(entity.name) && !options.dryRun) {
+    if (this.shouldTouchRouter(entity.name, options) && !options.dryRun) {
       addRouteToRouter(entity.name, {
         type: options.type,
         root: options.project.root
@@ -49,7 +49,7 @@ module.exports = {
   afterUninstall: function(options) {
     var entity = options.entity;
 
-    if (this.shouldTouchRouter(entity.name) && !options.dryRun) {
+    if (this.shouldTouchRouter(entity.name, options) && !options.dryRun) {
       removeRouteFromRouter(entity.name, {
         type: options.type,
         root: options.project.root
