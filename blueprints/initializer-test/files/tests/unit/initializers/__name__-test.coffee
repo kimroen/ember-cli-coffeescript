@@ -1,20 +1,20 @@
 `import Ember from 'ember'`
-`import { initialize } from '../../../initializers/<%= dasherizedModuleName %>'`
+`import { initialize } from '<%= dependencyDepth %>/initializers/<%= dasherizedModuleName %>'`
 `import { module, test } from 'qunit'`
 
-container = null
 application = null
+registry = null
 
-module '<%= classifiedModuleName %>Initializer',
+module '<%= friendlyTestName %>',
   beforeEach: ->
     Ember.run ->
       application = Ember.Application.create()
-      container = application.__container__
+      registry = application.registry
       application.deferReadiness()
 
 # Replace this with your real tests.
 test 'it works', (assert) ->
-  initialize container, application
+  initialize registry, application
 
   # you would normally confirm the results of the initializer here
   assert.ok true
