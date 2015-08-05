@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates a route unit test.'
-};
+module.exports = require('ember-cli/blueprints/route-test');
