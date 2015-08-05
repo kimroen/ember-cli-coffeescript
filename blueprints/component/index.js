@@ -1,16 +1,30 @@
 module.exports = {
   description: 'Generates a component. Name must contain a hyphen.',
 
+  availableOptions: [
+    {
+      name: 'path',
+      type: String,
+      default: 'components',
+      aliases: [
+        { 'no-path': '' }
+      ]
+    }
+  ],
+
   fileMapTokens: function() {
-    return this.lookupBlueprint('component').fileMapTokens();
+    var blueprint = this.lookupBlueprint('component');
+    return blueprint.fileMapTokens.apply(blueprint, arguments);
   },
 
-  normalizeEntityName: function(entityName) {
-    return this.lookupBlueprint('component').normalizeEntityName(entityName);
+  normalizeEntityName: function() {
+    var blueprint = this.lookupBlueprint('component');
+    return blueprint.normalizeEntityName.apply(blueprint, arguments);
   },
 
-  locals: function(options) {
-    var locals = this.lookupBlueprint('component').locals(options);
+  locals: function() {
+    var blueprint = this.lookupBlueprint('component');
+    var locals = blueprint.locals.apply(blueprint, arguments);
 
     // This is here to work around this bug in ember-cli:
     // https://github.com/ember-cli/ember-cli/issues/4001
