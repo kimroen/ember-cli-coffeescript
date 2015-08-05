@@ -1,7 +1,7 @@
-`import { <%= camelizedModuleName %> } from '../../../helpers/<%= dasherizedModuleName %>'`
+`import { <%= camelizedModuleName %> } from '<%= dependencyDepth %>/helpers/<%= dasherizedModuleName %>'`
 `import { module, test } from 'qunit'`
 
-module '<%= classifiedModuleName %>Helper'
+module '<%= friendlyTestName %>'
 
 # Replace this with your real tests.
 test 'it works', (assert) ->

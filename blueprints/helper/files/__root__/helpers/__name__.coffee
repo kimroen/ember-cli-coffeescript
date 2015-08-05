@@ -4,7 +4,7 @@
 <%= camelizedModuleName %> = (params) ->
   return params
 
-<%= classifiedModuleName %>Helper = Ember.HTMLBars.makeBoundHelper <%= camelizedModuleName %>
+<%= classifiedModuleName %>Helper = Ember.Helper.helper <%= camelizedModuleName %>
 
 `export { <%= camelizedModuleName %> }`
 
