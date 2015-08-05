@@ -1,4 +1,4 @@
-`import { test, moduleFor } from 'ember-qunit'`
+`import { moduleFor, test } from 'ember-qunit'`
 
 moduleFor 'controller:<%= dasherizedModuleName %>', {
   # Specify the other units that are required for this test.
@@ -9,4 +9,3 @@ moduleFor 'controller:<%= dasherizedModuleName %>', {
 test 'it exists', (assert) ->
   controller = @subject()
   assert.ok controller
-
