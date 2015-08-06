@@ -5,6 +5,7 @@
   + Generated helpers use `Ember.Helper.helper` instead of `Ember.HTMLBars.makeBoundHelper`
   + Generated component-tests are now integration tests by default. See note above
   + This fixes some issues when using this combined with pods in various configurations
+  + All generators should generally work in addons now
 + Updated depended-on ember-cli version which gets rid of some warnings [#85](https://github.com/kimroen/ember-cli-coffeescript/pull/85)
 + Fix exceptions when using `ember destroy route` or `ember generate route` [#88](https://github.com/kimroen/ember-cli-coffeescript/pull/88)
 
