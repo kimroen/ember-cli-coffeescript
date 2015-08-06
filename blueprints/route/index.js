@@ -1,30 +1,27 @@
 var fs         = require('fs-extra');
-var inflection = require('inflection');
 var path       = require('path');
 var EOL        = require('os').EOL;
+var chalk      = require('chalk');
 
 module.exports = {
   description: 'Generates a route and registers it with the router.',
 
   availableOptions: [
     {
-      name: 'type',
+      name: 'path',
       type: String,
-      values: ['route', 'resource'],
-      default: 'route',
-      aliases: [
-        {'route': 'route'},
-        {'resource': 'resource'}
-      ]
+      default: ''
+    },
+    {
+      name: 'skip-router',
+      type: Boolean,
+      default: false
     }
   ],
 
   fileMapTokens: function() {
-    return this.lookupBlueprint('route').fileMapTokens();
-  },
-
-  beforeInstall: function(options) {
-    this.lookupBlueprint('route').beforeInstall(options);
+    var blueprint = this.lookupBlueprint('route')
+    return blueprint.fileMapTokens.apply(blueprint, arguments);
   },
 
   shouldTouchRouter: function(name, options) {
@@ -32,102 +29,78 @@ module.exports = {
   },
 
   afterInstall: function(options) {
-    var entity = options.entity;
-
-    if (this.shouldTouchRouter(entity.name, options) && !options.dryRun) {
-      addRouteToRouter(entity.name, {
-        type: options.type,
-        root: options.project.root
-      });
-    }
-  },
-
-  beforeUninstall: function(options) {
-    this.lookupBlueprint('route').beforeUninstall(options);
+    updateRouter.call(this, 'add', options);
   },
 
   afterUninstall: function(options) {
-    var entity = options.entity;
-
-    if (this.shouldTouchRouter(entity.name, options) && !options.dryRun) {
-      removeRouteFromRouter(entity.name, {
-        type: options.type,
-        root: options.project.root
-      });
-    }
+    updateRouter.call(this, 'remove', options);
   }
 };
 
-function removeRouteFromRouter(name, options) {
-  var type       = options.type || 'route';
-  var routerPath = path.join(options.root, 'app', 'router.coffee');
-  var oldContent = fs.readFileSync(routerPath, 'utf-8');
-  var existence  = new RegExp("(?:route|resource)\\s?\\(?\\s?(['\"])" + name + "\\1");
-  var newContent;
-  var plural;
+function updateRouter(action, options) {
+  var entity = options.entity;
+  var actionColorMap = {
+    add: 'green',
+    remove: 'red'
+  };
+  var color = actionColorMap[action] || 'gray';
 
-  if (!existence.test(oldContent)) {
-    return;
+  if (this.shouldTouchRouter(entity.name, options)) {
+    writeRoute(action, entity.name, options);
+
+    this.ui.writeLine('updating router');
+    this._writeStatusToUI(chalk[color], action + ' route', entity.name);
   }
-
-  switch (type) {
-  case 'route':
-    var re = new RegExp('^\\s*@route\\s*\\(?(["\'])\\s*'+ name +'\\s*\\1\\)?', 'm');
-    newContent = oldContent.replace(re, '');
-    break;
-  case 'resource':
-    plural = inflection.pluralize(name);
-
-    if (plural === name) {
-      var re = new RegExp('^\\s*@resource\\s*\\(?(["\'])\\s*'+ name +'\\s*\\1,?.*\\)?', 'm');
-      newContent = oldContent.replace(re, '');
-    } else {
-      var re = new RegExp('^\\s*@resource\\s*\\(?(["\'])\\s*'+ name +'\\s*\\1,.*\\)?', 'm');
-      newContent = oldContent.replace(re, '');
-    }
-    break;
-  }
-
-  fs.writeFileSync(routerPath, newContent);
 }
 
-function addRouteToRouter(name, options) {
-  var type       = options.type || 'route';
-  var routerPath = path.join(options.root, 'app', 'router.coffee');
-  var oldContent = fs.readFileSync(routerPath, 'utf-8');
+function findRouter(options) {
+  var routerPathParts = [options.project.root];
+
+  if (options.dummy && options.project.isEmberCLIAddon()) {
+    routerPathParts = routerPathParts.concat(['tests', 'dummy', 'app', 'router.coffee']);
+  } else {
+    routerPathParts = routerPathParts.concat(['app', 'router.coffee']);
+  }
+
+  return routerPathParts;
+}
+
+function writeRoute(action, name, options) {
+  var routerPath = path.join.apply(null, findRouter(options));
+  var source = fs.readFileSync(routerPath, 'utf-8');
+
+  var newRoutes;
+  if (action === 'add') {
+    newRoutes = addRouteToRouter(name, source);
+  } else {
+    newRoutes = removeRouteFromRouter(name, source);
+  }
+
+  fs.writeFileSync(routerPath, newRoutes);
+}
+
+function removeRouteFromRouter(name, oldContent) {
   var existence  = new RegExp("(?:route|resource)\\s?\\(?\\s?(['\"])" + name + "\\1");
-  var plural;
-  var newContent;
+
+  if (!existence.test(oldContent)) {
+    return oldContent;
+  }
+
+  var re = new RegExp('^\\s*@route\\s*\\(?(["\'])\\s*'+ name +'\\s*\\1\\)?', 'm');
+  return oldContent.replace(re, '');
+}
+
+function addRouteToRouter(name, oldContent) {
+  var existence = new RegExp("(?:route|resource)\\s?\\(?\\s?(['\"])" + name + "\\1");
 
   if (existence.test(oldContent)) {
-    return;
+    return oldContent;
   }
 
   var funcRegex = /(map\s*->[\s\S]+)(\n^\S+)/m;
 
-  switch (type) {
-  case 'route':
-    newContent = oldContent.replace(
-      funcRegex,
-      "$1  @route '" + name + "'" + EOL + "$2"
-    );
-    break;
-  case 'resource':
-    plural = inflection.pluralize(name);
-
-    if (plural === name) {
-      newContent = oldContent.replace(
-        funcRegex,
-        "$1  @resource '" + name + "', ->" + EOL + "$2"
-      );
-    } else {
-      newContent = oldContent.replace(
-        funcRegex,
-        "$1  @resource '" + name + "', path: '" + plural + "/:" + name + "_id', ->" + EOL + "$2"
-      );
-    }
-    break;
-  }
-
-  fs.writeFileSync(routerPath, newContent);
+  return oldContent.replace(
+    funcRegex,
+    "$1  @route '" + name + "'" + EOL + "$2"
+  );
 }
