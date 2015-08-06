@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates a transform unit test.'
-};
+module.exports = require('ember-cli/blueprints/transform-test');
