@@ -1,3 +1,13 @@
+## 1.13.0
+*Note:* The generated tests from components require you to have [`ember-cli-htmlbars-inline-precompile`](https://github.com/pangratz/ember-cli-htmlbars-inline-precompile) installed with at least version 0.2.0.
+
++ Updated all blueprints to match the ember-cli 1.13-range [#89](https://github.com/kimroen/ember-cli-coffeescript/pull/89). Some highlights:
+  + Generated helpers use `Ember.Helper.helper` instead of `Ember.HTMLBars.makeBoundHelper`
+  + Generated component-tests are now integration tests by default. See note above
+  + This fixes some issues when using this combined with pods in various configurations
++ Updated depended-on ember-cli version which gets rid of some warnings [#85](https://github.com/kimroen/ember-cli-coffeescript/pull/85)
++ Fix exceptions when using `ember destroy route` or `ember generate route` [#88](https://github.com/kimroen/ember-cli-coffeescript/pull/88)
+
 ## 0.11.0
 + Generating components in addons now works [#67](https://github.com/kimroen/ember-cli-coffeescript/pull/67)
 + If both coffeescript and babel is used, now coffee runs first [#74](https://github.com/kimroen/ember-cli-coffeescript/pull/74)
