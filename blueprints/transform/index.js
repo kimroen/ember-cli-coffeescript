@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates an ember-data value transform.'
-};
+module.exports = require('ember-cli/blueprints/transform');

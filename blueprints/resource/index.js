@@ -44,7 +44,7 @@ module.exports = {
         if (testBlueprint.locals === Blueprint.prototype.locals) {
           testBlueprint.locals = function(options) {
             return mainBlueprint.locals(options);
-          }
+          };
         }
 
         return testBlueprint[type](options);
@@ -58,7 +58,7 @@ module.exports = {
       }
     });
 
-    var routeOptions = merge({}, options, { type: 'resource' });
+    var routeOptions = merge({}, options);
 
     var self = this;
     return this._processBlueprint(type, 'model', modelOptions)

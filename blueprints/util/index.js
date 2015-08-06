@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates a simple utility module/function.'
-};
+module.exports = require('ember-cli/blueprints/util');

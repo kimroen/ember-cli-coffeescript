@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates a view subclass.'
-};
+module.exports = require('ember-cli/blueprints/view');

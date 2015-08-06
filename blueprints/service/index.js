@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates a service.'
-};
+module.exports = require('ember-cli/blueprints/service');

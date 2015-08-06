@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates a util unit test.'
-};
+module.exports = require('ember-cli/blueprints/util-test');

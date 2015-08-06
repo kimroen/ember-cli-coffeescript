@@ -1,6 +1,6 @@
-# Takes two parameters: container and app
+# Takes two parameters: container and application
 initialize = () ->
-  # app.register 'route', 'foo', 'service:foo'
+  # application.register 'route', 'foo', 'service:foo'
 
 <%= classifiedModuleName %>Initializer =
   name: '<%= dasherizedModuleName %>'

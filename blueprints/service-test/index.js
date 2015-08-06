@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates a service unit test.'
-};
+module.exports = require('ember-cli/blueprints/service-test');

@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates a template.'
-};
+module.exports = require('ember-cli/blueprints/template');
