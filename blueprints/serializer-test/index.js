@@ -1,3 +1,1 @@
-module.exports = {
-  description: 'Generates a serializer unit test.'
-};
+module.exports = require('ember-cli/blueprints/serializer-test');
