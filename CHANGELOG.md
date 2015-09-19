@@ -1,3 +1,8 @@
+### 1.13.1
+Updates CoffeeScript to version 1.10.0. [See their changelog](http://coffeescript.org/#1.10.0).
+
++ Upgrade `broccoli-coffee` to 0.5.0 [#90](https://github.com/kimroen/ember-cli-coffeescript/pull/90)
+
 ## 1.13.0
 *Note:* The generated tests from components require you to have [`ember-cli-htmlbars-inline-precompile`](https://github.com/pangratz/ember-cli-htmlbars-inline-precompile) installed with at least version 0.2.0.
 
