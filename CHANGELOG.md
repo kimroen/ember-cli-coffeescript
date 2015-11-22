@@ -1,3 +1,8 @@
+### 1.13.2
+Makes rebuilds faster when linting your CoffeeScript by using `broccoli-persistent-filter`. Many thanks to [@johnnyshields](https://github.com/johnnyshields) and [@stefanpenner](https://github.com/stefanpenner) for making this happen.
+
++ Upgrade `CoffeeScriptLinter` to `broccoli-persistent-filter` [#95](https://github.com/kimroen/ember-cli-coffeescript/pull/95)
+
 ### 1.13.1
 Updates CoffeeScript to version 1.10.0. [See their changelog](http://coffeescript.org/#1.10.0).
 
