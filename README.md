@@ -1,4 +1,4 @@
-# CoffeeScript support for ember-cli
+# CoffeeScript support for ember-cli [![Build Status](https://travis-ci.org/kimroen/ember-cli-coffeescript.svg?branch=master)](https://travis-ci.org/kimroen/ember-cli-coffeescript)
 Adds precompilation of CoffeeScript files and all the basic generation
 types to the `ember generate` command, as well as linting.
 
