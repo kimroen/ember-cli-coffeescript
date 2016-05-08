@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import { initialize } from '<%= dependencyDepth %>/initializers/<%= dasherizedModuleName %>'`
+`import { initialize } from '<%= dasherizedModulePrefix %>/initializers/<%= dasherizedModuleName %>'`
 `import { module, test } from 'qunit'`
 
 application = null
