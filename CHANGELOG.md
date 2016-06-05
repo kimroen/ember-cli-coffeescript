@@ -2,6 +2,7 @@
 + Upgrade `broccoli-coffee` to 0.6, which now uses `broccoli-persistent-filter` [#104](https://github.com/kimroen/ember-cli-coffeescript/pull/104)
 + Upgrade `node-ignore`, which makes parsing `.coffeelintignore` more spec-compliant in general and makes it work on Windows. [#105](https://github.com/kimroen/ember-cli-coffeescript/pull/105)
 + Upgrade the project structure
++ Fix problem with generating helper tests and initializer tests [#108](https://github.com/kimroen/ember-cli-coffeescript/pull/108)
 
 ### 1.13.2
 Makes rebuilds faster when linting your CoffeeScript by using `broccoli-persistent-filter`. Many thanks to [@johnnyshields](https://github.com/johnnyshields) and [@stefanpenner](https://github.com/stefanpenner) for making this happen.
