@@ -60,7 +60,7 @@ ember g component my-component
 ```
 
 ember-cli-coffeescript comes with pod-support for the same blueprints as ember-cli
-does. Check out [the ember-cli docs for pods](http://www.ember-cli.com/#pods)
+does. Check out [the ember-cli docs for pods](https://ember-cli.com/user-guide/#using-pods)
 for instructions on how to use it.
 
 If you'd like to use ember-cli-coffeescript without the blueprints, you can add
