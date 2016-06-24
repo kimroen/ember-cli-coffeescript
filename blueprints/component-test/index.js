@@ -1,3 +1,5 @@
+var ancestralBlueprint = require('../../lib/utilities/ancestral-blueprint');
+
 var stringUtils = require('../../lib/utilities/string');
 var EOL = require('os').EOL;
 
@@ -19,12 +21,12 @@ module.exports = {
   ],
 
   fileMapTokens: function() {
-    var blueprint = this.lookupBlueprint('component-test');
+    var blueprint = ancestralBlueprint('component-test', this.project);
     return blueprint.fileMapTokens.apply(blueprint, arguments);
   },
 
   locals: function(options) {
-    var blueprint = this.lookupBlueprint('component-test');
+    var blueprint = ancestralBlueprint('component-test', this.project);
     var locals = blueprint.locals.apply(blueprint, arguments);
 
     var dasherizedModuleName = stringUtils.dasherize(options.entity.name);
