@@ -1,1 +1,1 @@
-module.exports = require('ember-cli/blueprints/transform');
+module.exports = require('ember-cli-legacy-blueprints/blueprints/transform');

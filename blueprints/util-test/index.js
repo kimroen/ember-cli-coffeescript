@@ -1,1 +1,1 @@
-module.exports = require('ember-cli/blueprints/util-test');
+module.exports = require('ember-cli-legacy-blueprints/blueprints/util-test');
