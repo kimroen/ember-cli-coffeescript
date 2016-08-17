@@ -1,1 +1,1 @@
-module.exports = require('ember-cli/blueprints/route-addon');
+module.exports = require('ember-cli-legacy-blueprints/blueprints/route-addon');

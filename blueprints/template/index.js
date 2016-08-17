@@ -1,1 +1,1 @@
-module.exports = require('ember-cli/blueprints/template');
+module.exports = require('ember-cli-legacy-blueprints/blueprints/template');

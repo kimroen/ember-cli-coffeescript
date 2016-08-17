@@ -1,3 +1,5 @@
+var ancestralBlueprint = require('../../lib/utilities/ancestral-blueprint');
+
 var fs         = require('fs-extra');
 var path       = require('path');
 var EOL        = require('os').EOL;
@@ -20,12 +22,12 @@ module.exports = {
   ],
 
   fileMapTokens: function() {
-    var blueprint = this.lookupBlueprint('route')
+    var blueprint = ancestralBlueprint('route', this.project)
     return blueprint.fileMapTokens.apply(blueprint, arguments);
   },
 
   shouldTouchRouter: function(name, options) {
-    return this.lookupBlueprint('route').shouldTouchRouter(name, options);
+    return ancestralBlueprint('route', this.project).shouldTouchRouter(name, options);
   },
 
   afterInstall: function(options) {

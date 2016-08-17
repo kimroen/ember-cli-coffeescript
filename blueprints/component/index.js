@@ -1,3 +1,5 @@
+var ancestralBlueprint = require('../../lib/utilities/ancestral-blueprint');
+
 module.exports = {
   description: 'Generates a component. Name must contain a hyphen.',
 
@@ -13,17 +15,17 @@ module.exports = {
   ],
 
   fileMapTokens: function() {
-    var blueprint = this.lookupBlueprint('component');
+    var blueprint = ancestralBlueprint('component', this.project);
     return blueprint.fileMapTokens.apply(blueprint, arguments);
   },
 
   normalizeEntityName: function() {
-    var blueprint = this.lookupBlueprint('component');
+    var blueprint = ancestralBlueprint('component', this.project);
     return blueprint.normalizeEntityName.apply(blueprint, arguments);
   },
 
   locals: function() {
-    var blueprint = this.lookupBlueprint('component');
+    var blueprint = ancestralBlueprint('component', this.project);
     var locals = blueprint.locals.apply(blueprint, arguments);
 
     // This is here to work around this bug in ember-cli:
