@@ -67,6 +67,10 @@
     "configPath": "tests/dummy/config",
     "before": [
       "ember-cli-babel"
+    ],
+    "after": [
+      "ember",
+      "ember-data"
     ]
   }
 }
