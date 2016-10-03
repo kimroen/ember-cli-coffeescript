@@ -1,3 +1,7 @@
+## master
++ Fix a bunch of issues with blueprints in `ember-cli` versions 2.6.0 and above. [#114](https://github.com/kimroen/ember-cli-coffeescript/pull/114), [#118](https://github.com/kimroen/ember-cli-coffeescript/pull/118), and [#119](https://github.com/kimroen/ember-cli-coffeescript/pull/119)
++ Handle unexpected blueprint behavior when running in a path containing the string `ember-cli-coffeescript` at any point. [#120](https://github.com/kimroen/ember-cli-coffeescript/pull/120)
+
 ## 1.14.0
 + Upgrade `broccoli-coffee` to 0.6, which now uses `broccoli-persistent-filter` [#104](https://github.com/kimroen/ember-cli-coffeescript/pull/104)
 + Upgrade `node-ignore`, which makes parsing `.coffeelintignore` more spec-compliant in general and makes it work on Windows. [#105](https://github.com/kimroen/ember-cli-coffeescript/pull/105)
