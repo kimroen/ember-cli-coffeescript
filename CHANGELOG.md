@@ -1,4 +1,6 @@
 ## master
+
+## 1.15.0
 + Fix a bunch of issues with blueprints in `ember-cli` versions 2.6.0 and above. [#114](https://github.com/kimroen/ember-cli-coffeescript/pull/114), [#118](https://github.com/kimroen/ember-cli-coffeescript/pull/118), and [#119](https://github.com/kimroen/ember-cli-coffeescript/pull/119)
 + Handle unexpected blueprint behavior when running in a path containing the string `ember-cli-coffeescript` at any point. [#120](https://github.com/kimroen/ember-cli-coffeescript/pull/120)
 
