@@ -3,7 +3,7 @@
 var path      = require('path');
 var chalk     = require('chalk');
 var checker   = require('ember-cli-version-checker');
-var defaults  = require('lodash').defaults;
+var defaults  = require('lodash.defaults');
 
 var CoffeePreprocessor = require('./lib/coffee-preprocessor');
 
