@@ -51,7 +51,7 @@
     "blueprints"
   ],
   "dependencies": {
-    "broccoli-coffee": "~0.6.0",
+    "broccoli-coffee": "~0.7.0",
     "broccoli-persistent-filter": "^1.1.0",
     "chalk": "^1.0.0",
     "coffeelint": "^1.6.1",
