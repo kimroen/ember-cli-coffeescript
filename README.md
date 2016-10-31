@@ -17,41 +17,6 @@ earlier versions, but I wouldn't know.
 
 ### How to use
 
-#### CoffeeScript and ember-cli
-There is one thing to note when using CoffeeScript with ember-cli: the syntax for _ES6-modules_.
-In ember-cli-apps written in JavaScript, this is a common pattern:
-
-```js
-// app/components/my-component.js
-import Ember from 'ember';
-
-export default Ember.Component.extend({
-  tagName: 'div'
-});
-```
-
-Writing `import` or `export` in a CoffeeScript-file causes an error, so we'll need
-to escape these lines with backticks so they run as JavaScript.
-
-We also need to store the export in a variable to export at the end, we can't export
-directly as done above. Please note that the name of this variable does not affect
-the name of the component itself - that is based entirely on the file name and placement.
-
-Here's the above file in CoffeeScript:
-
-```coffee
-# app/components/my-component.coffee
-`import Ember from 'ember'`
-
-MyComponent = Ember.Component.extend
-  tagName: 'div'
-
-`export default MyComponent`
-```
-
-Luckily, all the blueprints included with ember-cli-coffeescript do this for you! Which
-leads to…
-
 #### Blueprints
 Run `ember help generate` to get a list of available blueprints. Use them by running `ember g <blueprint> <args>`. For instance, to generate the above component:
 
@@ -89,19 +54,7 @@ ENV.coffeeOptions = {
 }
 ```
 
-You can set `lint` to `true` to enable linting with the default configurations, but you will probably
-want to add a `coffeelint.json` file to the root of your project either way, for instance to turn
-off the error for backticks.
-
-Example `coffeelint.json`:
-
-```json
-{
-    "no_backticks": {
-        "level": "ignore"
-    }
-}
-```
+You can set `lint` to `true` to enable linting with the default configurations
 
 You can find all the [available options on the website for `coffeelint`](http://www.coffeelint.org/#options).
 

@@ -1,1 +1,1 @@
-`export { default } from '<%= templateModulePath %>'`
+export { default } from '<%= templateModulePath %>'

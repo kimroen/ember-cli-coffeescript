@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
-`import { initialize } from '<%= dasherizedModulePrefix %>/initializers/<%= dasherizedModuleName %>'`
-`import { module, test } from 'qunit'`
+import Ember from 'ember'
+import { initialize } from '<%= dasherizedModulePrefix %>/initializers/<%= dasherizedModuleName %>'
+import { module, test } from 'qunit'
 
 application = null
 registry = null

@@ -1,5 +1,5 @@
-`import <%= camelizedModuleName %> from '../../../utils/<%= dasherizedModuleName %>'`
-`import { module, test } from 'qunit'`
+import <%= camelizedModuleName %> from '../../../utils/<%= dasherizedModuleName %>'
+import { module, test } from 'qunit'
 
 module '<%= friendlyTestName %>'
 

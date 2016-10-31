@@ -30,7 +30,7 @@ module.exports = {
     var locals = blueprint.locals.apply(blueprint, arguments);
 
     var dasherizedModuleName = stringUtils.dasherize(options.entity.name);
-    var testImports = EOL + "`import hbs from 'htmlbars-inline-precompile'`";
+    var testImports = EOL + "import hbs from 'htmlbars-inline-precompile'";
     var testOptions = "integration: true";
 
     var testContent = "assert.expect 2" + EOL + EOL +

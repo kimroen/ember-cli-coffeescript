@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
 IndexController = Ember.Route.extend
   model: ->
     'Howdy'
 
-`export default IndexController`
+export default IndexController

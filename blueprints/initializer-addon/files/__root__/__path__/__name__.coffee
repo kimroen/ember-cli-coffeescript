@@ -1,1 +1,1 @@
-`export { default, initialize } from '<%= modulePath %>'`
+export { default, initialize } from '<%= modulePath %>'
