@@ -40,6 +40,7 @@ module.exports = {
     }
 
     locals.contents = newContents;
+    locals.importTemplate = locals.importTemplate.replace(/;/, '');
 
     return locals;
   }
