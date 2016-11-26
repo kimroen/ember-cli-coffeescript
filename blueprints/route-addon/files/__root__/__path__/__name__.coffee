@@ -1,1 +1,1 @@
-export { default } from '<%= routeModulePath %>'
+`export { default } from '<%= routeModulePath %>'`
