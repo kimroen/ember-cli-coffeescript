@@ -24,4 +24,15 @@ describe('Acceptance: ember generate and destroy adapter', function() {
           .to.contain("moduleFor 'adapter:foo'")
     }));
   });
+
+  it('adapter-test foo', function() {
+    var args = ['adapter-test', 'foo'];
+
+    return emberNew()
+      .then(() => emberGenerateDestroy(args, (file) => {
+        expect(file('tests/unit/adapters/foo-test.coffee'))
+          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+          .to.contain("moduleFor 'adapter:foo'")
+      }));
+  });
 });
