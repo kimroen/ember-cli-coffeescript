@@ -16,6 +16,7 @@ env:
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
+  - NODE_TESTS
 
 matrix:
   fast_finish: true
@@ -33,5 +34,4 @@ install:
   - npm install
   - bower install
 
-script:
-  - ember try $EMBER_TRY_SCENARIO test
+script: ./scripts/run-tests.sh
