@@ -7,7 +7,7 @@ var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
 
-describe.skip('Acceptance: ember generate and destroy view', function() {
+describe('Acceptance: ember generate and destroy view', function() {
   setupTestHooks(this);
 
   it('view foo', function() {
