@@ -16,7 +16,7 @@ describe('Acceptance: ember generate and destroy acceptance-test', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('tests/acceptance/foo-test.coffee'))
-          .to.contain("import Ember from 'ember")
+          .to.contain("import Ember from 'ember'")
           .to.contain("import { module, test } from 'qunit'")
           .to.contain("import startApp from 'my-app/tests/helpers/start-app'")
           .to.contain("module 'Acceptance: Foo',")
