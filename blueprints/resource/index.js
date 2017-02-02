@@ -1,6 +1,6 @@
 var inflection = require('inflection');
 var Promise    = require('ember-cli/lib/ext/promise');
-var merge      = require('lodash').merge;
+var merge      = require('lodash.merge')
 var Blueprint  = require('ember-cli/lib/models/blueprint');
 
 module.exports = {

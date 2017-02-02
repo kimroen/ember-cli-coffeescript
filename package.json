@@ -9,7 +9,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:testall"
+    "test": "ember try:testall",
+    "nodetest": "mocha node-tests --recursive"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "ember-cli": "2.6.2",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.5",
+    "ember-cli-blueprint-test-helpers": "^0.14.0",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-htmlbars": "^1.0.1",
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
@@ -43,7 +45,8 @@
     "ember-load-initializers": "^0.5.0",
     "ember-resolver": "^2.0.3",
     "ember-try": "^0.1.2",
-    "loader.js": "^4.0.0"
+    "loader.js": "^4.0.0",
+    "mocha": "^2.5.3"
   },
   "keywords": [
     "ember-addon",
@@ -61,7 +64,8 @@
     "ignore": "^3.0.9",
     "inflection": "^1.4.0",
     "json-stable-stringify": "^1.0.0",
-    "lodash": "^2.4.1"
+    "lodash.defaults": "^4.2.0",
+    "lodash.merge": "^4.6.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",

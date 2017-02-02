@@ -88,3 +88,18 @@ files are linted.
 To avoid linting specific files or folders, you can put a file named `.coffeelintignore`
 in the root of your project containing ignore-rules, one per line. This is just like a
 `.gitignore`-file, and it will follow the same rules.
+
+### Developing
+- `git clone` this repository
+- `npm install`
+- `bower install`
+- `npm link`
+
+Because of the nature of this project, it needs to be consumed by an ember-cli project to be properly developed.
+
+- Add `"ember-cli-coffeescript": "*"` to your consuming project's `package.json`
+- From your project root run `npm link ember-cli-coffeescript`
+
+### Running Tests
+- `ember test`
+- `npm run nodetest`
