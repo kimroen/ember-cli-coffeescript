@@ -16,12 +16,12 @@ describe('Acceptance: ember generate and destroy model', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/models/foo.coffee'))
-          .to.contain("`import DS from 'ember-data'`")
+          .to.contain("import DS from 'ember-data'")
           .to.contain('Foo = DS.Model.extend {')
-          .to.contain("`export default Foo`");
+          .to.contain("export default Foo");
 
         expect(file('tests/unit/models/foo-test.coffee'))
-          .to.contain("`import { moduleForModel, test } from 'ember-qunit'`")
+          .to.contain("import { moduleForModel, test } from 'ember-qunit'")
           .to.contain("moduleForModel 'foo', 'Unit | Model | foo', {")
           .to.contain("needs: []");
     }));

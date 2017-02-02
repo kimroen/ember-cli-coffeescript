@@ -16,14 +16,14 @@ describe('Acceptance: ember generate and destroy helper', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/helpers/foo-bar.coffee'))
-          .to.contain("`import Ember from 'ember'`")
+          .to.contain("import Ember from 'ember'")
           .to.contain('fooBar = (params) ->')
           .to.contain('FooBarHelper = Ember.Helper.helper fooBar')
-          .to.contain("`export { fooBar }`")
-          .to.contain("`export default FooBarHelper`");
+          .to.contain("export { fooBar }")
+          .to.contain("export default FooBarHelper");
 
         expect(file('tests/unit/helpers/foo-bar-test.coffee'))
-          .to.contain("`import { fooBar } from 'my-app/helpers/foo-bar'`")
+          .to.contain("import { fooBar } from 'my-app/helpers/foo-bar'")
           .to.contain("module 'Unit | Helper | foo bar'")
           .to.contain("result = fooBar 42");
     }));

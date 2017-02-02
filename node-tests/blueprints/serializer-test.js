@@ -16,12 +16,12 @@ describe('Acceptance: ember generate and destroy serializer', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/serializers/foo.coffee'))
-          .to.contain("`import DS from 'ember-data'`")
+          .to.contain("import DS from 'ember-data'")
           .to.contain('FooSerializer = DS.RESTSerializer.extend()')
-          .to.contain("`export default FooSerializer`");
+          .to.contain("export default FooSerializer");
 
         expect(file('tests/unit/serializers/foo-test.coffee'))
-          .to.contain("`import { moduleForModel, test } from 'ember-qunit'`")
+          .to.contain("import { moduleForModel, test } from 'ember-qunit'")
           .to.contain("moduleForModel 'foo', 'Unit | Serializer | foo',")
           .to.contain("needs: ['serializer:foo']");
     }));
@@ -33,7 +33,7 @@ describe('Acceptance: ember generate and destroy serializer', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('tests/unit/serializers/foo-test.coffee'))
-          .to.contain("`import { moduleForModel, test } from 'ember-qunit'`")
+          .to.contain("import { moduleForModel, test } from 'ember-qunit'")
           .to.contain("moduleForModel 'foo', 'Unit | Serializer | foo',")
           .to.contain("needs: ['serializer:foo']");
     }));

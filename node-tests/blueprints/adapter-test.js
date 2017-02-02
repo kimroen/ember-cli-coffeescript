@@ -16,9 +16,9 @@ describe('Acceptance: ember generate and destroy adapter', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/adapters/foo.coffee'))
-          .to.contain("`import ApplicationAdapter from './application'`")
+          .to.contain("import ApplicationAdapter from './application'")
           .to.contain("FooAdapter = ApplicationAdapter.extend()")
-          .to.contain("`export default FooAdapter`");
+          .to.contain("export default FooAdapter");
 
         expect(file('tests/unit/adapters/foo-test.coffee'))
           .to.contain("moduleFor 'adapter:foo'")
@@ -31,7 +31,7 @@ describe('Acceptance: ember generate and destroy adapter', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('tests/unit/adapters/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'adapter:foo'")
       }));
   });

@@ -17,12 +17,12 @@ describe('Acceptance: ember generate and destroy util', function() {
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/utils/foo-bar.coffee'))
           .to.contain('fooBar = () ->')
-          .to.contain("`export default fooBar`");
+          .to.contain("export default fooBar");
 
         expect(file('tests/unit/utils/foo-bar-test.coffee'))
           // TODO: This import should use absolute imports
-          .to.contain("`import fooBar from '../../../utils/foo-bar'`")
-          .to.contain("`import { module, test } from 'qunit'`")
+          .to.contain("import fooBar from '../../../utils/foo-bar'")
+          .to.contain("import { module, test } from 'qunit'")
           .to.contain("module 'Unit | Utility | foo bar'")
           .to.contain('result = fooBar()');
     }));
@@ -34,8 +34,8 @@ describe('Acceptance: ember generate and destroy util', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('tests/unit/utils/foo-bar-test.coffee'))
-          .to.contain("`import fooBar from '../../../utils/foo-bar'`")
-          .to.contain("`import { module, test } from 'qunit'`")
+          .to.contain("import fooBar from '../../../utils/foo-bar'")
+          .to.contain("import { module, test } from 'qunit'")
           .to.contain("module 'Unit | Utility | foo bar'")
           .to.contain('result = fooBar()');
     }));

@@ -16,7 +16,7 @@ describe('Acceptance: ember generate and destroy addon-import', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/addon-imports/foo.coffee'))
-          .to.contain(`export { default } from 'my-app/addon-imports/foo'`);
+          .to.contain("export { default } from 'my-app/addon-imports/foo'");
     }));
   });
 });

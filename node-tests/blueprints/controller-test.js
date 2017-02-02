@@ -16,12 +16,12 @@ describe('Acceptance: ember generate and destroy controller', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/controllers/foo.coffee'))
-          .to.contain("`import Ember from 'ember'`")
+          .to.contain("import Ember from 'ember'")
           .to.contain('FooController = Ember.Controller.extend()')
-          .to.contain("`export default FooController`");
+          .to.contain("export default FooController");
 
         expect(file('tests/unit/controllers/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'controller:foo'");
     }));
   });

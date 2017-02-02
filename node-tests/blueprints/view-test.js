@@ -16,12 +16,12 @@ describe('Acceptance: ember generate and destroy view', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/views/foo.coffee'))
-          .to.contain("`import Ember from 'ember'`")
+          .to.contain("import Ember from 'ember'")
           .to.contain('FooView = Ember.View.extend()')
-          .to.contain("`export default FooView`");
+          .to.contain("export default FooView");
 
         expect(file('tests/unit/views/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'view:foo', 'Unit | View | foo'");
     }));
   });
@@ -32,7 +32,7 @@ describe('Acceptance: ember generate and destroy view', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('tests/unit/views/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'view:foo', 'Unit | View | foo'");
     }));
   });

@@ -19,13 +19,13 @@ describe('Acceptance: ember generate and destroy initializer', function() {
           .to.contain('initialize = () ->')
           .to.contain('FooBarInitializer =')
           .to.contain("name: 'foo-bar'")
-          .to.contain("`export {initialize}`")
-          .to.contain("`export default FooBarInitializer`");
+          .to.contain("export {initialize}")
+          .to.contain("export default FooBarInitializer");
 
         expect(file('tests/unit/initializers/foo-bar-test.coffee'))
-          .to.contain("`import Ember from 'ember'`")
-          .to.contain("`import { initialize } from 'my-app/initializers/foo-bar'`")
-          .to.contain("`import { module, test } from 'qunit'`")
+          .to.contain("import Ember from 'ember'")
+          .to.contain("import { initialize } from 'my-app/initializers/foo-bar'")
+          .to.contain("import { module, test } from 'qunit'")
           .to.contain("module 'Unit | Initializer | foo bar'");
     }));
   });

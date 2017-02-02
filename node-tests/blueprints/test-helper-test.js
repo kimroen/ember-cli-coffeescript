@@ -16,9 +16,9 @@ describe('Acceptance: ember generate and destroy test-helper', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('tests/helpers/foo.coffee'))
-          .to.contain("`import Ember from 'ember'`")
+          .to.contain("import Ember from 'ember'")
           .to.contain('foo = (app) ->')
-          .to.contain("`export default Ember.Test.registerAsyncHelper('foo', foo)`");
+          .to.contain("export default Ember.Test.registerAsyncHelper('foo', foo)");
     }));
   });
 });

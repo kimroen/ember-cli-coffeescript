@@ -16,12 +16,12 @@ describe('Acceptance: ember generate and destroy transform', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/transforms/foo.coffee'))
-          .to.contain("`import DS from 'ember-data'`")
+          .to.contain("import DS from 'ember-data'")
           .to.contain('FooTransform = DS.Transform.extend')
-          .to.contain("`export default FooTransform`");
+          .to.contain("export default FooTransform");
 
         expect(file('tests/unit/transforms/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'transform:foo', 'Unit | Transform | foo', {");
     }));
   });
@@ -32,7 +32,7 @@ describe('Acceptance: ember generate and destroy transform', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('tests/unit/transforms/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'transform:foo', 'Unit | Transform | foo', {");
     }));
   });

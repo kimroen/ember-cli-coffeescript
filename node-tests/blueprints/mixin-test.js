@@ -16,15 +16,15 @@ describe('Acceptance: ember generate and destroy mixin', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('app/mixins/foo-bar.coffee'))
-          .to.contain("`import Ember from 'ember'`")
+          .to.contain("import Ember from 'ember'")
           .to.contain('FooBarMixin = Ember.Mixin.create()')
-          .to.contain("`export default FooBarMixin`");
+          .to.contain("export default FooBarMixin");
 
         expect(file('tests/unit/mixins/foo-bar-test.coffee'))
-          .to.contain("`import Ember from 'ember'`")
+          .to.contain("import Ember from 'ember'")
           // TODO: Fix this import - it should be absolute
-          .to.contain("`import FooBarMixin from '../../../mixins/foo-bar'`")
-          .to.contain("`import { module, test } from 'qunit'`")
+          .to.contain("import FooBarMixin from '../../../mixins/foo-bar'")
+          .to.contain("import { module, test } from 'qunit'")
           .to.contain("module 'Unit | Mixin | foo bar'")
           .to.contain('FooBarObject = Ember.Object.extend FooBarMixin')
           .to.contain('subject = FooBarObject.create()');
@@ -37,9 +37,9 @@ describe('Acceptance: ember generate and destroy mixin', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
         expect(file('tests/unit/mixins/foo-bar-test.coffee'))
-          .to.contain("`import Ember from 'ember'`")
-          .to.contain("`import FooBarMixin from '../../../mixins/foo-bar'`")
-          .to.contain("`import { module, test } from 'qunit'`")
+          .to.contain("import Ember from 'ember'")
+          .to.contain("import FooBarMixin from '../../../mixins/foo-bar'")
+          .to.contain("import { module, test } from 'qunit'")
           .to.contain("module 'Unit | Mixin | foo bar'")
           .to.contain('FooBarObject = Ember.Object.extend FooBarMixin')
           .to.contain('subject = FooBarObject.create()');
