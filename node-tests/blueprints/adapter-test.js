@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy adapter', function() {
   setupTestHooks(this);
@@ -15,13 +16,21 @@ describe('Acceptance: ember generate and destroy adapter', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/adapters/foo.coffee'))
+        var adapterFile = file('app/adapters/foo.coffee');
+
+        expect(adapterFile)
           .to.contain("import ApplicationAdapter from './application'")
           .to.contain("FooAdapter = ApplicationAdapter.extend()")
           .to.contain("export default FooAdapter");
 
-        expect(file('tests/unit/adapters/foo-test.coffee'))
+        expectCoffee(adapterFile);
+
+        var adapterTestFile = file('tests/unit/adapters/foo-test.coffee');
+
+        expect(adapterTestFile)
           .to.contain("moduleFor 'adapter:foo'")
+
+        expectCoffee(adapterTestFile);
     }));
   });
 
@@ -30,9 +39,13 @@ describe('Acceptance: ember generate and destroy adapter', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('tests/unit/adapters/foo-test.coffee'))
+        var adapterTestFile = file('tests/unit/adapters/foo-test.coffee');
+
+        expect(adapterTestFile)
           .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'adapter:foo'")
+
+        expectCoffee(adapterTestFile);
       }));
   });
 });

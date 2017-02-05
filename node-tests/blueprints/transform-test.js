@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy transform', function() {
   setupTestHooks(this);
@@ -15,14 +16,22 @@ describe('Acceptance: ember generate and destroy transform', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/transforms/foo.coffee'))
+        var transformFile = file('app/transforms/foo.coffee');
+
+        expect(transformFile)
           .to.contain("import DS from 'ember-data'")
           .to.contain('FooTransform = DS.Transform.extend')
           .to.contain("export default FooTransform");
 
-        expect(file('tests/unit/transforms/foo-test.coffee'))
+        expectCoffee(transformFile);
+
+        var transformTestFile = file('tests/unit/transforms/foo-test.coffee');
+
+        expect(transformTestFile)
           .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'transform:foo', 'Unit | Transform | foo', {");
+
+        expectCoffee(transformTestFile);
     }));
   });
 
@@ -31,9 +40,13 @@ describe('Acceptance: ember generate and destroy transform', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('tests/unit/transforms/foo-test.coffee'))
+        var testFile = file('tests/unit/transforms/foo-test.coffee');
+
+        expect(testFile)
           .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'transform:foo', 'Unit | Transform | foo', {");
+
+        expectCoffee(testFile);
     }));
   });
 });

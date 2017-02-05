@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy util', function() {
   setupTestHooks(this);
@@ -15,16 +16,24 @@ describe('Acceptance: ember generate and destroy util', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/utils/foo-bar.coffee'))
+        var utilFile = file('app/utils/foo-bar.coffee');
+
+        expect(utilFile)
           .to.contain('fooBar = () ->')
           .to.contain("export default fooBar");
 
-        expect(file('tests/unit/utils/foo-bar-test.coffee'))
+        expectCoffee(utilFile);
+
+        var utilTestFile = file('tests/unit/utils/foo-bar-test.coffee');
+
+        expect(utilTestFile)
           // TODO: This import should use absolute imports
           .to.contain("import fooBar from '../../../utils/foo-bar'")
           .to.contain("import { module, test } from 'qunit'")
           .to.contain("module 'Unit | Utility | foo bar'")
           .to.contain('result = fooBar()');
+
+        expectCoffee(utilTestFile);
     }));
   });
 
@@ -33,11 +42,15 @@ describe('Acceptance: ember generate and destroy util', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('tests/unit/utils/foo-bar-test.coffee'))
+        var testFile = file('tests/unit/utils/foo-bar-test.coffee');
+
+        expect(testFile)
           .to.contain("import fooBar from '../../../utils/foo-bar'")
           .to.contain("import { module, test } from 'qunit'")
           .to.contain("module 'Unit | Utility | foo bar'")
           .to.contain('result = fooBar()');
+
+        expectCoffee(testFile);
     }));
   });
 });
