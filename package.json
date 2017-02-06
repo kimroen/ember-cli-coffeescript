@@ -76,7 +76,8 @@
     ],
     "after": [
       "ember",
-      "ember-data"
+      "ember-data",
+      "ember-source"
     ]
   }
 }
