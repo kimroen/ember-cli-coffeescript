@@ -54,7 +54,7 @@ ENV.coffeeOptions = {
 }
 ```
 
-You can set `lint` to `true` to enable linting with the default configurations
+You can set `lint` to `true` to enable linting with the default configurations even without a custom `coffeelint.json` file.
 
 You can find all the [available options on the website for `coffeelint`](http://www.coffeelint.org/#options).
 
@@ -69,7 +69,7 @@ ENV.coffeeOptions = {
 }
 ```
 
-If you want to change the way we format the output you can specify a custom error output and stats output
+If you want to change the way we format the linting output you can specify custom error output and stats output functions:
 
 ```js
 ENV.coffeeOptions = {
@@ -102,4 +102,9 @@ Because of the nature of this project, it needs to be consumed by an ember-cli p
 
 ### Running Tests
 - `ember test`
+- `npm run embertest`
 - `npm run nodetest`
+
+To run all the tests:
+
+- `npm test`
