@@ -1,4 +1,7 @@
 ## master
++ Reduce install size by depending on specific lodash modules directly. [#123](https://github.com/kimroen/ember-cli-coffeescript/pull/123)
++ Update to CoffeeScript version 1.12.1, which includes support for `import` and `export` without backticks 🎉 [#124](https://github.com/kimroen/ember-cli-coffeescript/pull/124)
++ Add basic tests for the supported blueprints. [#124](https://github.com/kimroen/ember-cli-coffeescript/pull/124) and [#129](https://github.com/kimroen/ember-cli-coffeescript/pull/129)
 
 ## 1.15.0
 + Fix a bunch of issues with blueprints in `ember-cli` versions 2.6.0 and above. [#114](https://github.com/kimroen/ember-cli-coffeescript/pull/114), [#118](https://github.com/kimroen/ember-cli-coffeescript/pull/118), and [#119](https://github.com/kimroen/ember-cli-coffeescript/pull/119)
