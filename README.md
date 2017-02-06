@@ -18,7 +18,7 @@ earlier versions, but I wouldn't know.
 ### How to use
 
 #### Blueprints
-Run `ember help generate` to get a list of available blueprints. Use them by running `ember g <blueprint> <args>`. For instance, to generate the above component:
+Run `ember help generate` to get a list of available blueprints. Use them by running `ember g <blueprint> <args>`. For instance, to generate a component:
 
 ```
 ember g component my-component
