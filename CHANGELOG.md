@@ -1,4 +1,14 @@
 ## master
+
+## 1.16.0
+This release updates CoffeeScript to version 1.12.1, which contains support for a lot of ES2016 features that were unavailable or impractical to use in CoffeeScript. The main ones for Ember apps are [modules](http://coffeescript.org/#modules) and [tagged template literals](http://coffeescript.org/#tagged-template-literals). See [the official CoffeeScript changelog](http://coffeescript.org/#changelog) for the full list of changes.
+
+This means you can now write your imports and exports without backticks, and all generated code will also now be without these. Rejoice!
+
+Thanks to [@jakesjews](https://github.com/jakesjews) for championing this update.
+
+In other news, there are now tests for the blueprints and the install size is slightly smaller.
+
 + Reduce install size by depending on specific lodash modules directly. [#123](https://github.com/kimroen/ember-cli-coffeescript/pull/123)
 + Update to CoffeeScript version 1.12.1, which includes support for `import` and `export` without backticks 🎉 [#124](https://github.com/kimroen/ember-cli-coffeescript/pull/124)
 + Add basic tests for the supported blueprints. [#124](https://github.com/kimroen/ember-cli-coffeescript/pull/124) and [#129](https://github.com/kimroen/ember-cli-coffeescript/pull/129)
