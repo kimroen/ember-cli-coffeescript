@@ -9,7 +9,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:testall",
+    "test": "npm run embertest && npm run nodetest",
+    "embertest": "ember try:testall",
     "nodetest": "mocha node-tests --recursive"
   },
   "repository": {
