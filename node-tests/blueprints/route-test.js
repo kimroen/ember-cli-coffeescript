@@ -8,6 +8,7 @@ var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 var chai = require('ember-cli-blueprint-test-helpers/chai');
 var expect = chai.expect;
 var file = chai.file;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy route', function() {
   setupTestHooks(this);
@@ -18,15 +19,15 @@ describe('Acceptance: ember generate and destroy route', function() {
     return emberNew()
       .then(() => emberGenerateDestroy(args, (_file) => {
         expect(_file('app/routes/foo.coffee'))
-          .to.contain("`import Ember from 'ember'`")
+          .to.contain("import Ember from 'ember'")
           .to.contain('FooRoute = Ember.Route.extend()')
-          .to.contain("`export default FooRoute`");
+          .to.contain("export default FooRoute");
 
         expect(_file('app/templates/foo.hbs'))
           .to.contain('{{outlet}}');
 
         expect(_file('tests/unit/routes/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'route:foo', 'Unit | Route | foo', {");
 
         expect(file('app/router.coffee'))
@@ -42,9 +43,13 @@ describe('Acceptance: ember generate and destroy route', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (_file) => {
-        expect(_file('tests/unit/routes/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+        var testFile = _file('tests/unit/routes/foo-test.coffee');
+
+        expect(testFile)
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'route:foo', 'Unit | Route | foo', {");
+
+        expectCoffee(testFile);
     }));
   });
 });

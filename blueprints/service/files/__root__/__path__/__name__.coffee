@@ -1,5 +1,5 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
 <%= classifiedModuleName %>Service = Ember.Service.extend()
 
-`export default <%= classifiedModuleName %>Service`
+export default <%= classifiedModuleName %>Service

@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy route-addon', function() {
   setupTestHooks(this);
@@ -15,11 +16,19 @@ describe('Acceptance: ember generate and destroy route-addon', function() {
 
     return emberNew({ target: 'addon' })
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/routes/foo.coffee'))
-          .to.contain("`export { default } from 'my-addon/routes/foo'`");
+        var routeFile = file('app/routes/foo.coffee');
 
-        expect(file('app/templates/foo.coffee'))
-          .to.contain("`export { default } from 'my-addon/templates/foo'`");
+        expect(routeFile)
+          .to.contain("export { default } from 'my-addon/routes/foo'");
+
+        expectCoffee(routeFile);
+
+        var templateFile = file('app/templates/foo.coffee');
+
+        expect(templateFile)
+          .to.contain("export { default } from 'my-addon/templates/foo'");
+
+        expectCoffee(templateFile);
     }));
   });
 });

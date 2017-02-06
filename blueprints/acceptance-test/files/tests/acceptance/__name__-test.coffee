@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
-`import { module, test } from 'qunit'`
-`import startApp from '<%= testFolderRoot %>/tests/helpers/start-app'`
+import Ember from 'ember'
+import { module, test } from 'qunit'
+import startApp from '<%= testFolderRoot %>/tests/helpers/start-app'
 
 module 'Acceptance: <%= classifiedModuleName %>',
   beforeEach: ->

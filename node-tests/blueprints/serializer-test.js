@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy serializer', function() {
   setupTestHooks(this);
@@ -15,15 +16,23 @@ describe('Acceptance: ember generate and destroy serializer', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/serializers/foo.coffee'))
-          .to.contain("`import DS from 'ember-data'`")
-          .to.contain('FooSerializer = DS.RESTSerializer.extend()')
-          .to.contain("`export default FooSerializer`");
+        var serializerFile = file('app/serializers/foo.coffee');
 
-        expect(file('tests/unit/serializers/foo-test.coffee'))
-          .to.contain("`import { moduleForModel, test } from 'ember-qunit'`")
+        expect(serializerFile)
+          .to.contain("import DS from 'ember-data'")
+          .to.contain('FooSerializer = DS.RESTSerializer.extend()')
+          .to.contain("export default FooSerializer");
+
+        expectCoffee(serializerFile);
+
+        var serializerTestFile = file('tests/unit/serializers/foo-test.coffee');
+
+        expect(serializerTestFile)
+          .to.contain("import { moduleForModel, test } from 'ember-qunit'")
           .to.contain("moduleForModel 'foo', 'Unit | Serializer | foo',")
           .to.contain("needs: ['serializer:foo']");
+
+        expectCoffee(serializerTestFile);
     }));
   });
 
@@ -32,10 +41,14 @@ describe('Acceptance: ember generate and destroy serializer', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('tests/unit/serializers/foo-test.coffee'))
-          .to.contain("`import { moduleForModel, test } from 'ember-qunit'`")
+        var testFile = file('tests/unit/serializers/foo-test.coffee');
+
+        expect(testFile)
+          .to.contain("import { moduleForModel, test } from 'ember-qunit'")
           .to.contain("moduleForModel 'foo', 'Unit | Serializer | foo',")
           .to.contain("needs: ['serializer:foo']");
+
+        expectCoffee(testFile);
     }));
   });
 });

@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy mixin', function() {
   setupTestHooks(this);
@@ -15,19 +16,27 @@ describe('Acceptance: ember generate and destroy mixin', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/mixins/foo-bar.coffee'))
-          .to.contain("`import Ember from 'ember'`")
-          .to.contain('FooBarMixin = Ember.Mixin.create()')
-          .to.contain("`export default FooBarMixin`");
+        var mixinFile = file('app/mixins/foo-bar.coffee');
 
-        expect(file('tests/unit/mixins/foo-bar-test.coffee'))
-          .to.contain("`import Ember from 'ember'`")
+        expect(mixinFile)
+          .to.contain("import Ember from 'ember'")
+          .to.contain('FooBarMixin = Ember.Mixin.create()')
+          .to.contain("export default FooBarMixin");
+
+        expectCoffee(mixinFile);
+
+        var mixinTestFile = file('tests/unit/mixins/foo-bar-test.coffee');
+
+        expect(mixinTestFile)
+          .to.contain("import Ember from 'ember'")
           // TODO: Fix this import - it should be absolute
-          .to.contain("`import FooBarMixin from '../../../mixins/foo-bar'`")
-          .to.contain("`import { module, test } from 'qunit'`")
+          .to.contain("import FooBarMixin from '../../../mixins/foo-bar'")
+          .to.contain("import { module, test } from 'qunit'")
           .to.contain("module 'Unit | Mixin | foo bar'")
           .to.contain('FooBarObject = Ember.Object.extend FooBarMixin')
           .to.contain('subject = FooBarObject.create()');
+
+        expectCoffee(mixinTestFile);
     }));
   });
 
@@ -36,13 +45,17 @@ describe('Acceptance: ember generate and destroy mixin', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('tests/unit/mixins/foo-bar-test.coffee'))
-          .to.contain("`import Ember from 'ember'`")
-          .to.contain("`import FooBarMixin from '../../../mixins/foo-bar'`")
-          .to.contain("`import { module, test } from 'qunit'`")
+        var mixinTestFile = file('tests/unit/mixins/foo-bar-test.coffee');
+
+        expect(mixinTestFile)
+          .to.contain("import Ember from 'ember'")
+          .to.contain("import FooBarMixin from '../../../mixins/foo-bar'")
+          .to.contain("import { module, test } from 'qunit'")
           .to.contain("module 'Unit | Mixin | foo bar'")
           .to.contain('FooBarObject = Ember.Object.extend FooBarMixin')
           .to.contain('subject = FooBarObject.create()');
+
+        expectCoffee(mixinTestFile);
     }));
   });
 });

@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy initializer-addon', function() {
   setupTestHooks(this);
@@ -15,8 +16,12 @@ describe('Acceptance: ember generate and destroy initializer-addon', function() 
 
     return emberNew({ target: 'addon' })
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/initializers/foo-bar.coffee'))
-          .to.contain("`export { default, initialize } from 'my-addon/initializers/foo-bar'`");
+        var initializerFile = file('app/initializers/foo-bar.coffee');
+
+        expect(initializerFile)
+          .to.contain("export { default, initialize } from 'my-addon/initializers/foo-bar'");
+
+        expectCoffee(initializerFile);
     }));
   });
 });

@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy acceptance-test', function() {
   setupTestHooks(this);
@@ -15,15 +16,19 @@ describe('Acceptance: ember generate and destroy acceptance-test', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('tests/acceptance/foo-test.coffee'))
-          .to.contain("`import Ember from 'ember'`")
-          .to.contain("`import { module, test } from 'qunit'`")
-          .to.contain("`import startApp from 'my-app/tests/helpers/start-app'`")
+        var acceptanceFile = file('tests/acceptance/foo-test.coffee');
+
+        expect(acceptanceFile)
+          .to.contain("import Ember from 'ember'")
+          .to.contain("import { module, test } from 'qunit'")
+          .to.contain("import startApp from 'my-app/tests/helpers/start-app'")
           .to.contain("module 'Acceptance: Foo',")
           .to.contain("test 'visiting /foo', (assert) ->")
           .to.contain("visit '/foo'")
           .to.contain("andThen ->")
           .to.contain("assert.equal currentURL(), '/foo'");
+
+        expectCoffee(acceptanceFile);
     }));
   });
 });

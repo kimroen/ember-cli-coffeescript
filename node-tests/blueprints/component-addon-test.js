@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy component-addon', function() {
   setupTestHooks(this);
@@ -15,8 +16,12 @@ describe('Acceptance: ember generate and destroy component-addon', function() {
 
     return emberNew({target: 'addon'})
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/components/foo-bar.coffee'))
-          .to.contain("`export { default } from 'my-addon/components/foo-bar'`");
+        var componentFile = file('app/components/foo-bar.coffee');
+
+        expect(componentFile)
+          .to.contain("export { default } from 'my-addon/components/foo-bar'");
+
+        expectCoffee(componentFile);
     }));
   });
 });

@@ -1,4 +1,4 @@
-`import DS from 'ember-data'`
+import DS from 'ember-data'
 
 <%= classifiedModuleName %>Transform = DS.Transform.extend
   deserialize: (serialized) ->
@@ -7,4 +7,4 @@
   serialize: (deserialized) ->
     deserialized
 
-`export default <%= classifiedModuleName %>Transform`
+export default <%= classifiedModuleName %>Transform

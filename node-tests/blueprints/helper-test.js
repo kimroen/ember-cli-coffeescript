@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy helper', function() {
   setupTestHooks(this);
@@ -15,17 +16,25 @@ describe('Acceptance: ember generate and destroy helper', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/helpers/foo-bar.coffee'))
-          .to.contain("`import Ember from 'ember'`")
+        var helperFile = file('app/helpers/foo-bar.coffee');
+
+        expect(helperFile)
+          .to.contain("import Ember from 'ember'")
           .to.contain('fooBar = (params) ->')
           .to.contain('FooBarHelper = Ember.Helper.helper fooBar')
-          .to.contain("`export { fooBar }`")
-          .to.contain("`export default FooBarHelper`");
+          .to.contain("export { fooBar }")
+          .to.contain("export default FooBarHelper");
 
-        expect(file('tests/unit/helpers/foo-bar-test.coffee'))
-          .to.contain("`import { fooBar } from 'my-app/helpers/foo-bar'`")
+        expectCoffee(helperFile);
+
+        var helperTestFile = file('tests/unit/helpers/foo-bar-test.coffee');
+
+        expect(helperTestFile)
+          .to.contain("import { fooBar } from 'my-app/helpers/foo-bar'")
           .to.contain("module 'Unit | Helper | foo bar'")
           .to.contain("result = fooBar 42");
+
+        expectCoffee(helperTestFile);
     }));
   });
 });

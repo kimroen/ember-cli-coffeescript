@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
-`import <%= classifiedModuleName %>Mixin from '../../../mixins/<%= dasherizedModuleName %>'`
-`import { module, test } from 'qunit'`
+import Ember from 'ember'
+import <%= classifiedModuleName %>Mixin from '../../../mixins/<%= dasherizedModuleName %>'
+import { module, test } from 'qunit'
 
 module '<%= friendlyTestName %>'
 

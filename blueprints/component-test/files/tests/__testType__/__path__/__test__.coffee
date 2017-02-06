@@ -1,4 +1,4 @@
-`import { test, moduleForComponent } from 'ember-qunit'`<%= testImports %>
+import { test, moduleForComponent } from 'ember-qunit'<%= testImports %>
 
 moduleForComponent '<%= componentPathName %>', '<%= friendlyTestDescription %>', {
   <%= testOptions %>

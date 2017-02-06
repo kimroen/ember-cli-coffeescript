@@ -6,6 +6,7 @@ var emberNew = blueprintHelpers.emberNew;
 var emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 
 var expect = require('ember-cli-blueprint-test-helpers/chai').expect;
+var expectCoffee = require('../helpers/expect-coffee');
 
 describe('Acceptance: ember generate and destroy service', function() {
   setupTestHooks(this);
@@ -15,14 +16,22 @@ describe('Acceptance: ember generate and destroy service', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('app/services/foo.coffee'))
-          .to.contain("`import Ember from 'ember'`")
-          .to.contain('FooService = Ember.Service.extend()')
-          .to.contain("`export default FooService`");
+        var serviceFile = file('app/services/foo.coffee');
 
-        expect(file('tests/unit/services/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+        expect(serviceFile)
+          .to.contain("import Ember from 'ember'")
+          .to.contain('FooService = Ember.Service.extend()')
+          .to.contain("export default FooService");
+
+        expectCoffee(serviceFile);
+
+        var serviceTestFile = file('tests/unit/services/foo-test.coffee');
+
+        expect(serviceTestFile)
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'service:foo', 'Unit | Service | foo', {");
+
+        expectCoffee(serviceTestFile);
     }));
   });
 
@@ -31,9 +40,13 @@ describe('Acceptance: ember generate and destroy service', function() {
 
     return emberNew()
       .then(() => emberGenerateDestroy(args, (file) => {
-        expect(file('tests/unit/services/foo-test.coffee'))
-          .to.contain("`import { moduleFor, test } from 'ember-qunit'`")
+        var serviceTestFile = file('tests/unit/services/foo-test.coffee');
+
+        expect(serviceTestFile)
+          .to.contain("import { moduleFor, test } from 'ember-qunit'")
           .to.contain("moduleFor 'service:foo', 'Unit | Service | foo', {");
+
+        expectCoffee(serviceTestFile);
     }));
   });
 });

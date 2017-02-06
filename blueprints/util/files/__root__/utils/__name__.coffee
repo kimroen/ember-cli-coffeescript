@@ -1,4 +1,4 @@
 <%= camelizedModuleName %> = () ->
   true
 
-`export default <%= camelizedModuleName %>`
+export default <%= camelizedModuleName %>

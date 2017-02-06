@@ -39,13 +39,8 @@ module.exports = {
       newContents = locals.contents + '\n';
     }
 
-    var newImport = '';
-    if (locals.importTemplate) {
-      newImport = "`" + locals.importTemplate.replace(/;/, '`');
-    }
-
     locals.contents = newContents;
-    locals.importTemplate = newImport;
+    locals.importTemplate = locals.importTemplate.replace(/;/, '');
 
     return locals;
   }
