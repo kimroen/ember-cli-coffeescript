@@ -20,8 +20,7 @@ describe('Acceptance: ember generate and destroy adapter', function() {
 
         expect(adapterFile)
           .to.contain("import ApplicationAdapter from './application'")
-          .to.contain("FooAdapter = ApplicationAdapter.extend()")
-          .to.contain("export default FooAdapter");
+          .to.contain('export default ApplicationAdapter.extend()');
 
         expectCoffee(adapterFile);
 

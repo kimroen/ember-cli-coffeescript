@@ -20,8 +20,7 @@ describe('Acceptance: ember generate and destroy view', function() {
 
         expect(viewFile)
           .to.contain("import Ember from 'ember'")
-          .to.contain('FooView = Ember.View.extend()')
-          .to.contain("export default FooView");
+          .to.contain('export default Ember.View.extend()');
 
         expectCoffee(viewFile);
 

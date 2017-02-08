@@ -1,4 +1,2 @@
-<%= camelizedModuleName %> = () ->
+export default () ->
   true
-
-export default <%= camelizedModuleName %>

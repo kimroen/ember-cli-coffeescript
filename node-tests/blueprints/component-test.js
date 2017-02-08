@@ -20,8 +20,7 @@ describe('Acceptance: ember generate and destroy component', function() {
 
         expect(componentFile)
           .to.contain("import Ember from 'ember'")
-          .to.contain('XFooComponent = Ember.Component.extend()')
-          .to.contain('export default XFooComponent')
+          .to.contain('export default Ember.Component.extend()')
           .to.not.contain('layout');
 
         expectCoffee(componentFile);

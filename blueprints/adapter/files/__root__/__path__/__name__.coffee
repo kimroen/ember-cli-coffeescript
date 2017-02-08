@@ -1,5 +1,3 @@
 <%= importStatement %>
 
-<%= classifiedModuleName %>Adapter = <%= baseClass %>.extend()
-
-export default <%= classifiedModuleName %>Adapter
+export default <%= baseClass %>.extend()

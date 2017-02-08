@@ -20,8 +20,7 @@ describe('Acceptance: ember generate and destroy service', function() {
 
         expect(serviceFile)
           .to.contain("import Ember from 'ember'")
-          .to.contain('FooService = Ember.Service.extend()')
-          .to.contain("export default FooService");
+          .to.contain('export default Ember.Service.extend()');
 
         expectCoffee(serviceFile);
 

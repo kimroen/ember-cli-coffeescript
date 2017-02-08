@@ -20,8 +20,7 @@ describe('Acceptance: ember generate and destroy serializer', function() {
 
         expect(serializerFile)
           .to.contain("import DS from 'ember-data'")
-          .to.contain('FooSerializer = DS.RESTSerializer.extend()')
-          .to.contain("export default FooSerializer");
+          .to.contain('export default DS.RESTSerializer.extend()');
 
         expectCoffee(serializerFile);
 
