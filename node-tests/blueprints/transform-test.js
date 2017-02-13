@@ -20,8 +20,7 @@ describe('Acceptance: ember generate and destroy transform', function() {
 
         expect(transformFile)
           .to.contain("import DS from 'ember-data'")
-          .to.contain('FooTransform = DS.Transform.extend')
-          .to.contain("export default FooTransform");
+          .to.contain('export default DS.Transform.extend');
 
         expectCoffee(transformFile);
 

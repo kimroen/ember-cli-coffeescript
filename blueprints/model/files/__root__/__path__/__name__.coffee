@@ -1,7 +1,5 @@
 import DS from 'ember-data'
 
-<%= classifiedModuleName %> = DS.Model.extend {
+export default DS.Model.extend {
   <%= attrs %>
 }
-
-export default <%= classifiedModuleName %>

@@ -20,8 +20,7 @@ describe('Acceptance: ember generate and destroy model', function() {
 
         expect(modelFile)
           .to.contain("import DS from 'ember-data'")
-          .to.contain('Foo = DS.Model.extend {')
-          .to.contain("export default Foo");
+          .to.contain('export default DS.Model.extend {');
 
         expectCoffee(modelFile);
 

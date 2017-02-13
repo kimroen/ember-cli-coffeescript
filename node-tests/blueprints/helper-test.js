@@ -20,10 +20,8 @@ describe('Acceptance: ember generate and destroy helper', function() {
 
         expect(helperFile)
           .to.contain("import Ember from 'ember'")
-          .to.contain('fooBar = (params) ->')
-          .to.contain('FooBarHelper = Ember.Helper.helper fooBar')
-          .to.contain("export { fooBar }")
-          .to.contain("export default FooBarHelper");
+          .to.contain('export fooBar = (params) ->')
+          .to.contain('export default Ember.Helper.helper fooBar');
 
         expectCoffee(helperFile);
 

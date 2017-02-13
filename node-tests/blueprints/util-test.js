@@ -19,8 +19,7 @@ describe('Acceptance: ember generate and destroy util', function() {
         var utilFile = file('app/utils/foo-bar.coffee');
 
         expect(utilFile)
-          .to.contain('fooBar = () ->')
-          .to.contain("export default fooBar");
+          .to.contain('export default () ->');
 
         expectCoffee(utilFile);
 

@@ -20,8 +20,7 @@ describe('Acceptance: ember generate and destroy mixin', function() {
 
         expect(mixinFile)
           .to.contain("import Ember from 'ember'")
-          .to.contain('FooBarMixin = Ember.Mixin.create()')
-          .to.contain("export default FooBarMixin");
+          .to.contain('export default Ember.Mixin.create()');
 
         expectCoffee(mixinFile);
 

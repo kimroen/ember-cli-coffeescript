@@ -20,8 +20,7 @@ describe('Acceptance: ember generate and destroy controller', function() {
 
         expect(controllerFile)
           .to.contain("import Ember from 'ember'")
-          .to.contain('FooController = Ember.Controller.extend()')
-          .to.contain("export default FooController");
+          .to.contain('export default Ember.Controller.extend()');
 
         expectCoffee(controllerFile);
 
