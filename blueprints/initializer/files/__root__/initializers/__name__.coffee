@@ -1,10 +1,8 @@
 # Takes two parameters: container and application
-initialize = () ->
+export initialize = () ->
   # application.register 'route', 'foo', 'service:foo'
 
-<%= classifiedModuleName %>Initializer =
+export default {
   name: '<%= dasherizedModuleName %>'
   initialize: initialize
-
-export {initialize}
-export default <%= classifiedModuleName %>Initializer
+}

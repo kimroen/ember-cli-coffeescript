@@ -19,11 +19,10 @@ describe('Acceptance: ember generate and destroy initializer', function() {
         var initializerFile = file('app/initializers/foo-bar.coffee');
 
         expect(file('app/initializers/foo-bar.coffee'))
-          .to.contain('initialize = () ->')
-          .to.contain('FooBarInitializer =')
+          .to.contain('export initialize = () ->')
+          .to.contain('export default {')
           .to.contain("name: 'foo-bar'")
-          .to.contain("export {initialize}")
-          .to.contain("export default FooBarInitializer");
+          .to.contain("initialize: initialize");
 
         expectCoffee(initializerFile);
 
