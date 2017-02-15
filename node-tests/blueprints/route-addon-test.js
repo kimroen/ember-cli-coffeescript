@@ -16,19 +16,15 @@ describe('Acceptance: ember generate and destroy route-addon', function() {
 
     return emberNew({ target: 'addon' })
       .then(() => emberGenerateDestroy(args, (file) => {
-        var routeFile = file('app/routes/foo.coffee');
+        var routeFile = file('app/routes/foo.js');
 
         expect(routeFile)
-          .to.contain("export { default } from 'my-addon/routes/foo'");
+          .to.contain("export { default } from 'my-addon/routes/foo';");
 
-        expectCoffee(routeFile);
-
-        var templateFile = file('app/templates/foo.coffee');
+        var templateFile = file('app/templates/foo.js');
 
         expect(templateFile)
-          .to.contain("export { default } from 'my-addon/templates/foo'");
-
-        expectCoffee(templateFile);
+          .to.contain("export { default } from 'my-addon/templates/foo';");
     }));
   });
 });

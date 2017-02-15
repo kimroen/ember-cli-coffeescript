@@ -16,12 +16,10 @@ describe('Acceptance: ember generate and destroy initializer-addon', function() 
 
     return emberNew({ target: 'addon' })
       .then(() => emberGenerateDestroy(args, (file) => {
-        var initializerFile = file('app/initializers/foo-bar.coffee');
+        var initializerFile = file('app/initializers/foo-bar.js');
 
         expect(initializerFile)
-          .to.contain("export { default, initialize } from 'my-addon/initializers/foo-bar'");
-
-        expectCoffee(initializerFile);
+          .to.contain("export { default, initialize } from 'my-addon/initializers/foo-bar';");
     }));
   });
 });

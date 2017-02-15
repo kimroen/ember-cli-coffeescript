@@ -16,12 +16,10 @@ describe('Acceptance: ember generate and destroy component-addon', function() {
 
     return emberNew({target: 'addon'})
       .then(() => emberGenerateDestroy(args, (file) => {
-        var componentFile = file('app/components/foo-bar.coffee');
+        var componentFile = file('app/components/foo-bar.js');
 
         expect(componentFile)
-          .to.contain("export { default } from 'my-addon/components/foo-bar'");
-
-        expectCoffee(componentFile);
+          .to.contain("export { default } from 'my-addon/components/foo-bar';");
     }));
   });
 });

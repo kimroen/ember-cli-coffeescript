@@ -16,12 +16,10 @@ describe('Acceptance: ember generate and destroy helper-addon', function() {
 
     return emberNew({target: 'addon'})
       .then(() => emberGenerateDestroy(args, (file) => {
-        var helperFile = file('app/helpers/foo-bar.coffee');
+        var helperFile = file('app/helpers/foo-bar.js');
 
         expect(helperFile)
-          .to.contain("export { default, fooBar } from 'my-addon/helpers/foo-bar'");
-
-        expectCoffee(helperFile);
+          .to.contain("export { default, fooBar } from 'my-addon/helpers/foo-bar';");
     }));
   });
 });
