@@ -1,5 +1,8 @@
 ## master
 
++ Change all blueprints to use direct exports (instead of storing to variable and then exporting). [#137](https://github.com/kimroen/ember-cli-coffeescript/pull/137) and [#139](https://github.com/kimroen/ember-cli-coffeescript/pull/139)
++ Change files exporting things from addons to be JavaScript files so they can be consumed by applications without requiring `ember-cli-coffeescript` to be installed. [#136](https://github.com/kimroen/ember-cli-coffeescript/pull/136)
+
 ## 1.16.0
 This release updates CoffeeScript to version 1.12.1, which contains support for a lot of ES2016 features that were unavailable or impractical to use in CoffeeScript. The main ones for Ember apps are [modules](http://coffeescript.org/#modules) and [tagged template literals](http://coffeescript.org/#tagged-template-literals). See [the official CoffeeScript changelog](http://coffeescript.org/#changelog) for the full list of changes.
 
