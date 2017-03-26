@@ -1,5 +1,6 @@
 ## master
 
+## 1.16.1
 + Change all blueprints to use direct exports (instead of storing to variable and then exporting). [#137](https://github.com/kimroen/ember-cli-coffeescript/pull/137) and [#139](https://github.com/kimroen/ember-cli-coffeescript/pull/139)
 + Change files exporting things from addons to be JavaScript files so they can be consumed by applications without requiring `ember-cli-coffeescript` to be installed. [#136](https://github.com/kimroen/ember-cli-coffeescript/pull/136)
 
