@@ -1,5 +1,5 @@
 var inflection = require('inflection');
-var Promise    = require('ember-cli/lib/ext/promise');
+var RSVP       = require('rsvp');
 var merge      = require('lodash.merge')
 var Blueprint  = require('ember-cli/lib/models/blueprint');
 
@@ -26,7 +26,7 @@ module.exports = {
 
     var thisBlueprint = this;
 
-    return Promise.resolve()
+    return RSVP.Promise.resolve()
       .then(function() {
         return mainBlueprint[type](options);
       })
