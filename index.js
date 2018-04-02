@@ -2,8 +2,9 @@
 'use strict';
 var path      = require('path');
 var chalk     = require('chalk');
-var checker   = require('ember-cli-version-checker');
 var defaults  = require('lodash.defaults');
+
+var VersionChecker = require('ember-cli-version-checker');
 
 var CoffeePreprocessor = require('./lib/coffee-preprocessor');
 
@@ -11,7 +12,9 @@ module.exports = {
   name: 'Ember CLI Coffeescript Addon',
 
   shouldSetupRegistryInIncluded: function() {
-    return !checker.isAbove(this, '0.2.0');
+    var checker = new VersionChecker(this);
+
+    return !checker.for('ember-cli', 'npm').isAbove('0.2.0');
   },
 
   getConfig: function() {
