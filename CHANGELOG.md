@@ -1,4 +1,5 @@
 ## master
++ Use external `RSVP` dependency instead of using directly from `ember-cli` [#147](https://github.com/kimroen/ember-cli-coffeescript/pull/147)
 
 ## 1.16.1
 + Change all blueprints to use direct exports (instead of storing to variable and then exporting). [#137](https://github.com/kimroen/ember-cli-coffeescript/pull/137) and [#139](https://github.com/kimroen/ember-cli-coffeescript/pull/139)
